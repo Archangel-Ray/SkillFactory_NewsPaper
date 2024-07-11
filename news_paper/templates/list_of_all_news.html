@@ -1,5 +1,7 @@
 {%extends 'default.html'%}
 
+{% load custom_filters %}
+
 {%block title%}Список всех новостей{%endblock%}
 
 {%block content%}
@@ -13,9 +15,9 @@
     </tr>
     {% for news in all_news %}
     <tr>
-        <td>{{ news.title }}</td>
+        <td>{{ news.title|censor }}</td>
         <td>{{ news.date_creation|date:'M d Y' }}</td>
-        <td>{{ news.text|truncatewords:20 }}</td>
+        <td>{{ news.text|censor|truncatewords:20 }}</td>
     </tr>
     {% endfor %}
 </table>

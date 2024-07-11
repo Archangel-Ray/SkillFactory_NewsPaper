@@ -1,9 +1,11 @@
 {%extends 'default.html'%}
 
+{% load custom_filters %}
+
 {%block title%}Новость{%endblock%}
 
 {%block content%}
-<h1>{{ specific_news.title }}</h1>
+<h1>{{ specific_news.title|censor }}</h1>
 <h6>{{ specific_news.date_creation|date:'M d Y' }}</h6>
-<p>{{ specific_news.text }}</p>
+<p>{{ specific_news.text|censor }}</p>
 {%endblock%}
