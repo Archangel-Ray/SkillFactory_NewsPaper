@@ -3,6 +3,23 @@
 {%block title%}Список всех новостей{%endblock%}
 
 {%block content%}
-<h1>Последние новости</h1>
-{{ all_news }}
+<h1>Сегодня у нас {{ all_news|length }} новостей</h1>
+{% if all_news %}
+<table>
+    <tr>
+        <td>Заголовок</td>
+        <td>дата публикации</td>
+        <td>начало статьи</td>
+    </tr>
+    {% for news in all_news %}
+    <tr>
+        <td>{{ news.title }}</td>
+        <td>{{ news.date_creation|date:'M d Y' }}</td>
+        <td>{{ news.text|truncatewords:20 }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2>Новостей нет!</h2>
+{%endif%}
 {%endblock%}
