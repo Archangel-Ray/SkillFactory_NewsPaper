@@ -5,7 +5,9 @@
 {%block title%}Новость{%endblock%}
 
 {%block content%}
+<h3><sup>Автор статьи:</sup> {{specific_news.author.author_user}}</h3>
 <h1>{{ specific_news.title|censor }}</h1>
 <h6>{{ specific_news.date_creation|date:'M d Y' }}</h6>
 <p>{{ specific_news.text|censor }}</p>
+<h4>рейтинг - {{specific_news.rating}}</h4>
 {%endblock%}
