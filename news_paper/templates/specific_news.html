@@ -3,10 +3,7 @@
 {%block title%}Новость{%endblock%}
 
 {%block content%}
-<h4>{{ specific_news.category_type }}</h4>
 <h1>{{ specific_news.title }}</h1>
+<h6>{{ specific_news.date_creation|date:'M d Y' }}</h6>
 <p>{{ specific_news.text }}</p>
-<h6>{{ specific_news.date_creation }}</h6>
-<h5>{{ specific_news.author.author_user }}</h5>
-<h2>{{ specific_news.rating }}</h2>
 {%endblock%}
