@@ -20,6 +20,9 @@ class Author(models.Model):
         self.rating_author = p_rate * 3 + c_rat
         self.save()
 
+    def __str__(self):
+        return f'{self.author_user}'
+
 
 class Category(models.Model):
     name = models.CharField(max_length=64, unique=True)
