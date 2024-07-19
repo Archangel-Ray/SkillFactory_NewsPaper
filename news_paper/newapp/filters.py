@@ -1,4 +1,5 @@
-from django_filters import FilterSet, ModelChoiceFilter
+from django import forms
+from django_filters import FilterSet, ModelChoiceFilter, DateFilter
 
 from .models import Post, Author
 
@@ -11,11 +12,14 @@ class ProductFilter(FilterSet):
         empty_label='все'
     )
 
+    more_than_this_date = DateFilter(
+        widget=forms.DateInput(attrs={'type': 'date'}),
+        lookup_expr='date__gte',
+        field_name='date_creation'
+    )
+
     class Meta:
         model = Post
         fields = {
             'title': ['icontains'],
-            'date_creation': [
-                'gt',
-            ],
         }
