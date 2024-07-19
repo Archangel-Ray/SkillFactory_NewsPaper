@@ -1,6 +1,7 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
 from newapp.filters import ProductFilter
+from newapp.forms import PostForm
 from .models import Post
 
 
@@ -33,3 +34,14 @@ class SpecificNews(DetailView):
     model = Post
     template_name = 'specific_news.html'
     context_object_name = 'specific_news'
+
+
+class NewsCreate(CreateView):
+    form_class = PostForm
+    model = Post
+    template_name = 'news_editing.html'
+
+    def form_valid(self, form):
+        new_post = form.save(commit=False)
+        new_post.category_type = 'NW'
+        return super().form_valid(form)
