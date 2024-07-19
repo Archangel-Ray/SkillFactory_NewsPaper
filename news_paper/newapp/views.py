@@ -8,6 +8,7 @@ class ListOfAllNews(ListView):
     ordering = '-date_creation'
     template_name = 'list_of_all_news.html'
     context_object_name = 'all_news'
+    paginate_by = 10
 
 
 class SpecificNews(DetailView):
