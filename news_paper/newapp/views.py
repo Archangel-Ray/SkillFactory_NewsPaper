@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from newapp.filters import ProductFilter
 from newapp.forms import PostForm
@@ -45,3 +45,9 @@ class NewsCreate(CreateView):
         new_post = form.save(commit=False)
         new_post.category_type = 'NW'
         return super().form_valid(form)
+
+
+class NewsUpdate(UpdateView):
+    form_class = PostForm
+    model = Post
+    template_name = 'news_editing.html'
