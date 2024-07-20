@@ -9,12 +9,16 @@
 {% if all_news %}
 <table>
     <tr>
-        <td>Заголовок</td>
-        <td>дата публикации</td>
-        <td>начало статьи</td>
+        <td><b>новость / статья</b></td>
+        <td><h3>Автор</h3></td>
+        <td><h2>Заголовок</h2></td>
+        <td><b>дата публикации</b></td>
+        <td><h3>начало статьи</h3></td>
     </tr>
     {% for news in all_news %}
     <tr>
+        <td>{{ news.category_type }}</td>
+        <td>{{ news.author }}</td>
         <td>{{ news.title|censor }}</td>
         <td>{{ news.date_creation|date:'M d Y' }}</td>
         <td>{{ news.text|censor|truncatewords:20 }}</td>
