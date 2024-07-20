@@ -44,7 +44,8 @@ class NewsCreate(CreateView):
 
     def form_valid(self, form):
         new_post = form.save(commit=False)
-        new_post.category_type = 'NW'
+        if self.request.path == '/news/create/':
+            new_post.category_type = 'NW'
         return super().form_valid(form)
 
 
