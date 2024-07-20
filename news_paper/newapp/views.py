@@ -1,4 +1,5 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from newapp.filters import ProductFilter
 from newapp.forms import PostForm
@@ -51,3 +52,9 @@ class NewsUpdate(UpdateView):
     form_class = PostForm
     model = Post
     template_name = 'news_editing.html'
+
+
+class NewsDelete(DeleteView):
+    model = Post
+    template_name = 'news_deleting.html'
+    success_url = reverse_lazy('список всех статей')
