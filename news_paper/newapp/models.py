@@ -63,7 +63,7 @@ class Post(models.Model):
         return f'{self.title}: {self.preview()}'
 
     def get_absolute_url(self):
-        return reverse('вывод отдельной статьи', args=[str(self.id)])
+        return reverse('вывод отдельного поста', args=[str(self.id)])
 
 
 class PostCategory(models.Model):

@@ -44,7 +44,7 @@ class NewsCreate(CreateView):
 
     def form_valid(self, form):
         new_post = form.save(commit=False)
-        if self.request.path == '/news/create/':
+        if 'news' in self.request.path:
             new_post.category_type = 'NW'
         return super().form_valid(form)
 
@@ -58,4 +58,4 @@ class NewsUpdate(UpdateView):
 class NewsDelete(DeleteView):
     model = Post
     template_name = 'news_deleting.html'
-    success_url = reverse_lazy('список всех статей')
+    success_url = reverse_lazy('список всех постов')
