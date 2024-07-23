@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_filters',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # для входа через Гугл
+    'allauth.socialaccount.providers.google',
 
     'newapp',
 ]
