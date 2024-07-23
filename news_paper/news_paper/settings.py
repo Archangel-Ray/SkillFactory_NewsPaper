@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     # для входа через Гугл
-    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.google',
 
     'newapp',
 ]
