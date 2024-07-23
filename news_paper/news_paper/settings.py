@@ -154,3 +154,9 @@ AUTHENTICATION_BACKENDS = [
     # такие как вход по электронной почте.
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+ACCOUNT_EMAIL_REQUIRED = True  # поле эл.почты не может быть пустой
+ACCOUNT_UNIQUE_EMAIL = True  # поле эл.почты должно быть уникальным
+ACCOUNT_USERNAME_REQUIRED = False  # поле username не обязательно
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # аутентификация по эл.почте
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # проверка эл.почты пока отключена
