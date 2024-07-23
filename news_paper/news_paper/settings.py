@@ -134,3 +134,23 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/accounts/login/'  # ссылка на страницу аутентификации
+
+"""
+Authentication backends — это компоненты, которые определяют, каким образом 
+происходит проверка учётных данных пользователя.
+
+В Django можно использовать несколько бэкендов аутентификации одновременно. 
+Если стандартные методы аутентификации не удовлетворяют требования разработчика, 
+можно написать собственный бэкенд. Для этого нужно создать класс, который 
+наследует от django.contrib.auth.backends.BaseBackend и реализует методы 
+authenticate (для проверки учётных данных) и get_user (для получения объекта 
+пользователя).
+"""
+AUTHENTICATION_BACKENDS = [
+    # вход в систему по имени пользователя независимо от `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # специальные методы аутентификации `allauth`,
+    # такие как вход по электронной почте.
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
