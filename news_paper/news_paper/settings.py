@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # что бы различать сайты
+    'django.contrib.sites',
 
     'django_filters',
     'allauth',
@@ -47,6 +49,8 @@ INSTALLED_APPS = [
 
     'newapp',
 ]
+
+SITE_ID = 1  # номер сайта для django.contrib.sites
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
