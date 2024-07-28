@@ -136,7 +136,16 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/accounts/login/'  # ссылка на страницу аутентификации
+LOGIN_REDIRECT_URL = '/'  # сссылка перенаправления после аутентификации
 
+AUTHENTICATION_BACKENDS = [
+    # вход в систему по имени пользователя независимо от `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # специальные методы аутентификации `allauth`,
+    # такие как вход по электронной почте.
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 """
 Authentication backends — это компоненты, которые определяют, каким образом 
 происходит проверка учётных данных пользователя.
@@ -148,14 +157,6 @@ Authentication backends — это компоненты, которые опре
 authenticate (для проверки учётных данных) и get_user (для получения объекта 
 пользователя).
 """
-AUTHENTICATION_BACKENDS = [
-    # вход в систему по имени пользователя независимо от `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-
-    # специальные методы аутентификации `allauth`,
-    # такие как вход по электронной почте.
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
 
 ACCOUNT_EMAIL_REQUIRED = True  # поле эл.почты не может быть пустой
 ACCOUNT_UNIQUE_EMAIL = True  # поле эл.почты должно быть уникальным
