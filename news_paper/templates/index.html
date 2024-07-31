@@ -2,5 +2,10 @@
 
 {% block content %}
 <h2>Вы вошли под именем: {{request.user.username}}</h2>
+
+{% if is_not_authors %}
+<button><a href="upgrade/">Стать Автором</a></button>
+{% endif %}
+
 <button><a href="{% url 'account_logout' %}">Выйти</a></button>
 {% endblock %}
