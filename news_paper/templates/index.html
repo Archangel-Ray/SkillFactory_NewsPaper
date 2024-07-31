@@ -1,0 +1,6 @@
+{% extends "default.html" %}
+
+{% block content %}
+<h2>Вы вошли под именем: {{request.user.username}}</h2>
+<button><a href="{% url 'account_logout' %}">Выйти</a></button>
+{% endblock %}
