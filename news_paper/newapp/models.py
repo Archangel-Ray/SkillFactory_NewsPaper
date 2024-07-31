@@ -1,4 +1,5 @@
-from django.contrib.auth.models import User
+from allauth.account.forms import SignupForm
+from django.contrib.auth.models import User, Group
 from django.db import models
 from django.db.models import Sum
 from django.urls import reverse
@@ -91,3 +92,12 @@ class Comment(models.Model):
     def dislike(self):
         self.rating -= 1
         self.save()
+
+
+class BasicSignupForm(SignupForm):
+
+    def save(self, request):
+        user = super(BasicSignupForm, self).save(request)
+        common_group = Group.objects.get(name='common')
+        common_group.user_set.add(user)
+        return user
