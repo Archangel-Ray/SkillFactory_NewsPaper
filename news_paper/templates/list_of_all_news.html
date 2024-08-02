@@ -9,15 +9,21 @@
 {% if all_news %}
 <table>
     <tr>
-        <td><b>новость / статья</b></td>
+        <td><b>Категория</b></td>
+        <td><b>Тематика</b></td>
         <td><h3>Автор</h3></td>
         <td><h2>Заголовок</h2></td>
-        <td><b>дата публикации</b></td>
-        <td><h3>начало статьи</h3></td>
+        <td><b>Дата публикации</b></td>
+        <td><h3>Начало статьи</h3></td>
     </tr>
     {% for news in all_news %}
     <tr>
         <td>{{ news.category_type }}</td>
+        <td>
+            {% for topic in news.post_category.all %}
+            <a href="{% url 'товары по категории' topic.id %}">{{ topic }}</a>
+            {% endfor %}
+        </td>
         <td>{{ news.author }}</td>
         <td>
             <a href="{% url 'вывод отдельного поста' news.id %}">{{ news.title|censor }}</a> (
