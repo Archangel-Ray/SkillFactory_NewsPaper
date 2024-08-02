@@ -1,5 +1,6 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -86,3 +87,13 @@ class ProductsByCategory(ListOfAllNews):
         context['is_not_subscriber'] = self.request.user not in self.by_category.subscribers.all()
         context['by_category'] = self.by_category
         return context
+
+
+@login_required
+def subscribe(request, pk):
+    user = request.user
+    category = Category.objects.get(id=pk)
+    category.subscribers.add(user)
+
+    message = 'Вы подписались на рассылку новостей по категории'
+    return render(request, 'subscribe.html', {'category': category, 'message': message})
