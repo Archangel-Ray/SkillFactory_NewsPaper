@@ -77,3 +77,12 @@ class ProductsByCategory(ListOfAllNews):
         self.by_category = get_object_or_404(Category, id=self.kwargs['pk'])
         queryset = Post.objects.filter(category=self.by_category).order_by('-date_creation')
         return queryset
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        """
+        Получает статус пользователя по текущей категории
+        """
+        context = super().get_context_data(**kwargs)
+        context['is_not_subscriber'] = self.request.user not in self.by_category.subscribers.all()
+        context['by_category'] = self.by_category
+        return context
