@@ -76,7 +76,7 @@ class ProductsByCategory(ListOfAllNews):
         Фильтрует новости по полученной категории
         """
         self.by_category = get_object_or_404(Category, id=self.kwargs['pk'])
-        queryset = Post.objects.filter(category=self.by_category).order_by('-date_creation')
+        queryset = Post.objects.filter(post_category=self.by_category).order_by('-date_creation')
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
