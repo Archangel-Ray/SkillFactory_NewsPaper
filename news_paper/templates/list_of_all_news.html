@@ -19,7 +19,11 @@
     <tr>
         <td>{{ news.category_type }}</td>
         <td>{{ news.author }}</td>
-        <td>{{ news.title|censor }}</td>
+        <td>
+            <a href="{% url 'вывод отдельного поста' news.id %}">{{ news.title|censor }}</a> (
+            <a href="{% url 'редактирование новости' news.id %}"><u>Редактировать</u></a> /
+            <a href="{% url 'удаление новости' news.id %}"><u>Удалить</u></a>)
+        </td>
         <td>{{ news.date_creation|date:'M d Y' }}</td>
         <td>{{ news.text|censor|truncatewords:20 }}</td>
     </tr>
