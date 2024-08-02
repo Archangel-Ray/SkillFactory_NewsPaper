@@ -1,10 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from newapp.filters import ProductFilter
 from newapp.forms import PostForm
-from .models import Post
+from .models import Post, Category
 
 
 class ListOfAllNews(ListView):
@@ -62,3 +63,17 @@ class NewsDelete(DeleteView):
     model = Post
     template_name = 'news_deleting.html'
     success_url = reverse_lazy('список всех постов')
+
+
+class ProductsByCategory(ListOfAllNews):
+    model = Post
+    template_name = 'list_of_news_by_category.html'
+    context_object_name = 'list_by_category'
+
+    def get_queryset(self):
+        """
+        Фильтрует новости по полученной категории
+        """
+        self.by_category = get_object_or_404(Category, id=self.kwargs['pk'])
+        queryset = Post.objects.filter(category=self.by_category).order_by('-date_creation')
+        return queryset
