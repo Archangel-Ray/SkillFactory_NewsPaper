@@ -157,10 +157,18 @@ Authentication backends — это компоненты, которые опре
 authenticate (для проверки учётных данных) и get_user (для получения объекта 
 пользователя).
 """
-
+# переключение на аутентификацию по эл.почте
 ACCOUNT_EMAIL_REQUIRED = True  # поле эл.почты не может быть пустой
 ACCOUNT_UNIQUE_EMAIL = True  # поле эл.почты должно быть уникальным
 ACCOUNT_USERNAME_REQUIRED = False  # поле username не обязательно
 ACCOUNT_AUTHENTICATION_METHOD = 'email'  # аутентификация по эл.почте
 ACCOUNT_EMAIL_VERIFICATION = 'none'  # проверка эл.почты пока отключена
 ACCOUNT_FORMS = {'signup': 'newapp.models.BasicSignupForm'}  # переназначается формы регистрации
+
+# настройка отправки писем по эл.почте
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = open('G:/Python_projects/all_secret_codes_are_here/Yandex email/login.txt').read()
+EMAIL_HOST_PASSWORD = open('G:/Python_projects/all_secret_codes_are_here/Yandex email/password.txt').read()
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = open('G:/Python_projects/all_secret_codes_are_here/Yandex email/email.txt').read()
