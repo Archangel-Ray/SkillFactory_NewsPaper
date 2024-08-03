@@ -6,6 +6,11 @@
 
 {%block content%}
 <h1>Сообщения на тему {{ by_category }}</h1>
+
+{% if is_not_subscriber %}
+<p><a href="{% url 'подписка на категорию' by_category.id %}">Подписаться на эту тематику</a></p>
+{% endif %}
+
 {% if list_by_category %}
 <table>
     <tr>
