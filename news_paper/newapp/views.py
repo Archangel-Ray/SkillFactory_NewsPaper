@@ -1,6 +1,9 @@
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import get_object_or_404, render
+from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -96,4 +99,22 @@ def subscribe(request, pk):
     category.subscribers.add(user)
 
     message = 'Вы подписались на рассылку новостей по категории'
+
+    email_message = render_to_string(
+        'successful_subscription.html',
+        {
+            'by_category': category,
+            'name': user.username,
+        },
+    )
+
+    msg = EmailMultiAlternatives(
+        subject=f'Подписка на тему: {category}',
+        body=message,
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        to=[user.email],
+    )
+    msg.attach_alternative(email_message, "text/html")
+    msg.send()
+
     return render(request, 'subscribe.html', {'category': category, 'message': message})
