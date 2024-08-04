@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.mail import EmailMultiAlternatives
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -102,7 +102,7 @@ def subscribe(request, pk):
         message = 'Вы подписались на рассылку новостей по теме'
 
         email_message = render_to_string(
-            'successful_subscription.html',
+            'mail/successful_subscription.html',
             {
                 'by_category': category,
                 'name': user.username,
@@ -121,4 +121,34 @@ def subscribe(request, pk):
     else:
         message = 'Вы уже подписаны на тему'
 
+    return render(request, 'subscribe.html', {'category': category, 'message': message})
+
+
+@login_required
+def unsubscribe(request, pk):
+    user = request.user
+    category = Category.objects.get(id=pk)
+    if category.subscribers.filter(id=user.id).exists():
+        category.subscribers.remove(user)
+
+        message = 'Отключена подписка на рассылку по теме'
+
+        email_message = render_to_string(
+            'mail/subscription_cancellation_message.html',
+            {
+                'by_category': category,
+                'name': user.username,
+            },
+        )
+
+        msg = EmailMultiAlternatives(
+            subject=f'Прекращена подписка на тему: {category}',
+            body=message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[user.email],
+        )
+        msg.attach_alternative(email_message, "text/html")
+        msg.send()
+    else:
+        message = 'Не получается.\nВозможно, Вы не были подписаны на тему'
     return render(request, 'subscribe.html', {'category': category, 'message': message})
