@@ -160,9 +160,9 @@ authenticate (для проверки учётных данных) и get_user (
 # переключение на аутентификацию по эл.почте
 ACCOUNT_EMAIL_REQUIRED = True  # поле эл.почты не может быть пустой
 ACCOUNT_UNIQUE_EMAIL = True  # поле эл.почты должно быть уникальным
-ACCOUNT_USERNAME_REQUIRED = False  # поле username не обязательно
+ACCOUNT_USERNAME_REQUIRED = True  # поле username не обязательно
 ACCOUNT_AUTHENTICATION_METHOD = 'email'  # аутентификация по эл.почте
-ACCOUNT_EMAIL_VERIFICATION = 'none'  # проверка эл.почты пока отключена
+ACCOUNT_EMAIL_VERIFICATION = 'optional'  # проверка эл.почты пока отключена
 ACCOUNT_FORMS = {'signup': 'newapp.models.BasicSignupForm'}  # переназначается формы регистрации
 
 # настройка отправки писем по эл.почте
