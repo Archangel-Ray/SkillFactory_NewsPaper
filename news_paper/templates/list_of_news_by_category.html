@@ -9,6 +9,8 @@
 
 {% if is_not_subscriber %}
 <p><a href="{% url 'подписка на категорию' by_category.id %}">Подписаться на эту тематику</a></p>
+{% else %}
+<p><a href="{% url 'отписаться от категории' by_category.id %}">Отписаться от этой тематики</a></p>
 {% endif %}
 
 {% if list_by_category %}
