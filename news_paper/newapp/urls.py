@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .views import ListOfAllNews, SpecificNews, SearchByNews, NewsCreate, NewsUpdate, NewsDelete, ProductsByCategory, \
-    subscribe
+    subscribe, unsubscribe
 
 urlpatterns = [
     path('', ListOfAllNews.as_view(), name='список всех постов'),
@@ -12,4 +12,5 @@ urlpatterns = [
     path('<int:pk>/delete/', NewsDelete.as_view(), name='удаление новости'),
     path('category/<int:pk>', ProductsByCategory.as_view(), name='товары по категории'),
     path('category/<int:pk>/subscribe', subscribe, name='подписка на категорию'),
+    path('category/<int:pk>/unsubscribe', unsubscribe, name='отписаться от категории'),
 ]
