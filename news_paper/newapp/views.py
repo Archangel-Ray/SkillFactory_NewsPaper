@@ -96,25 +96,29 @@ class ProductsByCategory(ListOfAllNews):
 def subscribe(request, pk):
     user = request.user
     category = Category.objects.get(id=pk)
-    category.subscribers.add(user)
+    if not category.subscribers.filter(id=user.id).exists():
+        category.subscribers.add(user)
 
-    message = 'Вы подписались на рассылку новостей по категории'
+        message = 'Вы подписались на рассылку новостей по теме'
 
-    email_message = render_to_string(
-        'successful_subscription.html',
-        {
-            'by_category': category,
-            'name': user.username,
-        },
-    )
+        email_message = render_to_string(
+            'successful_subscription.html',
+            {
+                'by_category': category,
+                'name': user.username,
+            },
+        )
 
-    msg = EmailMultiAlternatives(
-        subject=f'Подписка на тему: {category}',
-        body=message,
-        from_email=settings.DEFAULT_FROM_EMAIL,
-        to=[user.email],
-    )
-    msg.attach_alternative(email_message, "text/html")
-    msg.send()
+        msg = EmailMultiAlternatives(
+            subject=f'Подписка на тему: {category}',
+            body=message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[user.email],
+        )
+        msg.attach_alternative(email_message, "text/html")
+        msg.send()
+
+    else:
+        message = 'Вы уже подписаны на тему'
 
     return render(request, 'subscribe.html', {'category': category, 'message': message})
