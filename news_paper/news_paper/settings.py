@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     # планировщик
-    'django-apscheduler',
+    'django_apscheduler',
 
     # подключение провайдеров
     'allauth.socialaccount.providers.google',
