@@ -13,13 +13,17 @@ from django_apscheduler import util
 logger = logging.getLogger(__name__)
 
 
+# def test_message_sending():
+#     send_mail(
+#         'Тестовая отправка сообщение из планировщика',
+#         'Это сообщение пришло потому что я запустил планировщик на срабатывание каждые десять секунд',
+#         from_email=settings.DEFAULT_FROM_EMAIL,
+#         recipient_list=[settings.DEFAULT_FROM_EMAIL],
+#     )
+
+
 def weekly_newsletter():
-    send_mail(
-        'Тестовая отправка сообщение из планировщика',
-        'Это сообщение пришло потому что я запустил планировщик на срабатывание каждые десять секунд',
-        from_email=settings.DEFAULT_FROM_EMAIL,
-        recipient_list=['skavik46111@gmail.com', settings.DEFAULT_FROM_EMAIL],
-    )
+    print('тест планировщика еженедельных сообщений')
 
 
 # The `close_old_connections` decorator ensures that database connections, that have become
@@ -45,10 +49,22 @@ class Command(BaseCommand):
         scheduler = BlockingScheduler(timezone=settings.TIME_ZONE)
         scheduler.add_jobstore(DjangoJobStore(), "default")
 
+        # scheduler.add_job(
+        #     test_message_sending,
+        #     trigger=CronTrigger(second="*/10"),  # Every 10 seconds
+        #     id="test_message_sending",  # Идентификатор, присвоенный каждому заданию, ДОЛЖЕН быть уникальным.
+        #     max_instances=1,
+        #     replace_existing=True,
+        # )
+        # logger.info("Added job 'test_message_sending'.")
+
         scheduler.add_job(
             weekly_newsletter,
-            trigger=CronTrigger(second="*/10"),  # Every 10 seconds
-            id="weekly_newsletter",  # Идентификатор, присвоенный каждому заданию, ДОЛЖЕН быть уникальным.
+            trigger=CronTrigger(second="*/5"),  # Every 10 seconds
+            # trigger=CronTrigger(
+            #     day_of_week="mon", hour="00", minute="00"
+            # ),  # Полночь понедельника, перед началом следующей рабочей недели.
+            id="weekly_newsletter",
             max_instances=1,
             replace_existing=True,
         )
