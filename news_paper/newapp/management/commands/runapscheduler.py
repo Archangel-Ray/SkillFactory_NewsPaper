@@ -10,6 +10,8 @@ from django_apscheduler.jobstores import DjangoJobStore
 from django_apscheduler.models import DjangoJobExecution
 from django_apscheduler import util
 
+from newapp.tasks import get_a_list_of_new_articles
+
 logger = logging.getLogger(__name__)
 
 
@@ -23,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 
 def weekly_newsletter():
-    print('тест планировщика еженедельных сообщений')
+    get_a_list_of_new_articles()
 
 
 # The `close_old_connections` decorator ensures that database connections, that have become
@@ -60,10 +62,10 @@ class Command(BaseCommand):
 
         scheduler.add_job(
             weekly_newsletter,
-            trigger=CronTrigger(second="*/5"),  # Every 10 seconds
-            # trigger=CronTrigger(
-            #     day_of_week="mon", hour="00", minute="00"
-            # ),  # Полночь понедельника, перед началом следующей рабочей недели.
+            # trigger=CronTrigger(second="*/30"),
+            trigger=CronTrigger(
+                day_of_week="mon", hour="00", minute="00"
+            ),  # Полночь понедельника, перед началом следующей рабочей недели.
             id="weekly_newsletter",
             max_instances=1,
             replace_existing=True,
