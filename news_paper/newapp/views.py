@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
@@ -51,8 +53,13 @@ class NewsCreate(PermissionRequiredMixin, CreateView):
 
     def form_valid(self, form):
         new_post = form.save(commit=False)
+
+        if Post.objects.filter(author=new_post.author, date_creation__date=date.today()).count() >= 3:
+            return render(self.request, 'post_limit_per_day.html', {'author': new_post.author})
+
         if 'news' in self.request.path:
             new_post.category_type = 'NW'
+
         return super().form_valid(form)
 
 
