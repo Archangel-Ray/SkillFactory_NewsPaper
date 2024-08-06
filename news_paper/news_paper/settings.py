@@ -138,7 +138,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/accounts/login/'  # ссылка на страницу аутентификации
-LOGIN_REDIRECT_URL = '/'  # сссылка перенаправления после аутентификации
+LOGIN_REDIRECT_URL = '/'  # ссылка перенаправления после аутентификации
 
 AUTHENTICATION_BACKENDS = [
     # вход в систему по имени пользователя независимо от `allauth`
@@ -174,3 +174,20 @@ EMAIL_HOST_USER = open('G:/Python_projects/all_secret_codes_are_here/Yandex emai
 EMAIL_HOST_PASSWORD = open('G:/Python_projects/all_secret_codes_are_here/Yandex email/password.txt').read()
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = open('G:/Python_projects/all_secret_codes_are_here/Yandex email/email.txt').read()
+
+# От django-apscheduler
+# Строка формата для отображения временных меток времени выполнения на сайте администрирования Django.
+# По умолчанию просто добавляет секунды к стандартному формату Django, что полезно для отображения
+# временных меток для заданий, выполнение которых запланировано с интервалом менее одной минуты.
+#
+# См. https://docs.djangoproject.com/en/dev/ref/settings/#datetime-format для строки формата. Подробности синтаксиса.
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+
+# От django-apscheduler
+# Максимальное время выполнения, разрешенное для заданий, запускаемых вручную через сайт администрирования Django,
+# что предотвращает истечение времени ожидания HTTP-запросов сайта администратора.
+#
+# Более длительные задания, вероятно, следует передать в библиотеку обработки фоновых задач.
+# Который вместо этого поддерживает несколько фоновых рабочих процессов (например, Dramatiq, Celery, Django-RQ,
+# и т. д. Популярные варианты см. на странице https://djangopackages.org/grids/g/workers-queues-tasks/).
+APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Секунды
