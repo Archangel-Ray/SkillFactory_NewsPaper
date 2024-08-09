@@ -191,3 +191,10 @@ APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
 # Который вместо этого поддерживает несколько фоновых рабочих процессов (например, Dramatiq, Celery, Django-RQ,
 # и т. д. Популярные варианты см. на странице https://djangopackages.org/grids/g/workers-queues-tasks/).
 APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Секунды
+
+# настройки Селери, подключение брокера
+CELERY_BROKER_URL = 'redis://localhost:6379'  # URL брокера сообщений (Redis)
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'  # хранилище результатов выполнения задач
+CELERY_ACCEPT_CONTENT = ['application/json']  # допустимый формат данных
+CELERY_TASK_SERIALIZER = 'json'  # метод сериализации задач
+CELERY_RESULT_SERIALIZER = 'json'  # метод сериализации результатов
