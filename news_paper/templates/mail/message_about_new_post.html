@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Новый пост в категории {{by_category}}</title>
 </head>
 <body>
-<p>Так как Вы подписаны на тему {{by_category}} сообщаем, что появилось новое сообщение:</p>
+<p>Так как Вы подписаны на тему <b>{{by_category}}</b> сообщаем, что в этой теме появилось новое сообщение:</p>
 <h1><a href="http://127.0.0.1:8005{% url 'вывод отдельного поста' post.id %}">{{post.title}}</a></h1>
-<p>{{post.text|slice:":200"}}...</p>
+<p>{{post.text|slice:":100"}}...</p>
 </body>
 </html>
