@@ -1,31 +1,11 @@
 from datetime import datetime, timedelta
 
 from django.conf import settings
-from django.core.mail import send_mail, EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils import timezone
 
 from newapp.models import Category, Post
-
-
-def signal_to_create_a_new_post(instance):
-    for category in instance.post_category.all():
-        email_message = render_to_string(
-            'mail/message_about_new_post.html',
-            {
-                'by_category': category,
-                'post': instance
-            },
-        )
-
-        msg = EmailMultiAlternatives(
-            subject=instance.title,
-            body='',
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[user.email for user in category.subscribers.all()],
-        )
-        msg.attach_alternative(email_message, "text/html")
-        msg.send()
 
 
 def get_a_list_of_new_articles():
@@ -51,4 +31,3 @@ def get_a_list_of_new_articles():
         )
         msg.attach_alternative(email_message, "text/html")
         msg.send()
-
