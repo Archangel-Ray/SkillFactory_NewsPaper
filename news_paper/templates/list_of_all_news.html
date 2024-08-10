@@ -5,7 +5,9 @@
 {%block title%}Список всех новостей{%endblock%}
 
 {%block content%}
-<h1>Сегодня у нас {{ all_news|length }} новостей</h1>
+<p>Сегодня у нас {{ all_news|length }} новостей</p>
+<h4><a href="{% url 'создание новости' %}">Опубликовать новость.</a> |
+    <a href="{% url 'создание статьи' %}">Опубликовать статью.</a></h4>
 {% if all_news %}
 <table>
     <tr>

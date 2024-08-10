@@ -9,8 +9,10 @@
 <h1>{{ specific_news.title|censor }}</h1>
 <h6>{{ specific_news.date_creation|date:'d.m.Y' }}</h6>
 <p>{{ specific_news.text|censor }}</p>
-<h4>рейтинг - {{specific_news.rating}}</h4>
+<h4>рейтинг - {{.rating}}</h4>
 
+<p><a href="{% url 'редактирование новости' specific_news.id %}">Редактировать</a>
+<a href="{% url 'удаление новости' specific_news.id %}">Удалить</a></p>
 <h1><a href="/news/">Все новости</a></h1>
 
 {%endblock%}
