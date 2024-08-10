@@ -8,6 +8,12 @@ app.config_from_object('django.conf:settings', namespace='CELERY')  # обнов
 
 app.autodiscover_tasks()  # ищет задачи
 
+app.conf.beat_schedule = {
+    'отправка сообщение о новом посте': {  # периодическая задача
+        'task': 'newapp.tasks.tasks.message_about_create_a_new_post',  # задача которая должна выполняться
+        'args': ('post_id',),
+    },
+}
 
 """
 запуск периодических задач на Windows в разных окнах терминала:
