@@ -5,7 +5,7 @@ from .views import ListOfAllNews, SpecificNews, SearchByNews, NewsCreate, NewsUp
     subscribe, unsubscribe
 
 urlpatterns = [
-    path('', ListOfAllNews.as_view(), name='список всех постов'),
+    path('', cache_page(60*5)(ListOfAllNews.as_view()), name='список всех постов'),
     path('search/', SearchByNews.as_view(), name='поиск по всем постам'),
     path('<int:pk>', cache_page(60*5)(SpecificNews.as_view()), name='вывод отдельного поста'),
     path('create/', NewsCreate.as_view(), name='создание новости'),
