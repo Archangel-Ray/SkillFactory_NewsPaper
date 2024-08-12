@@ -5,13 +5,13 @@ from .views import ListOfAllNews, SpecificNews, SearchByNews, NewsCreate, NewsUp
     subscribe, unsubscribe
 
 urlpatterns = [
-    path('', cache_page(60)(ListOfAllNews.as_view()), name='список всех постов'),
+    path('', ListOfAllNews.as_view(), name='список всех постов'),
     path('search/', SearchByNews.as_view(), name='поиск по всем постам'),
-    path('<int:pk>', cache_page(60*5)(SpecificNews.as_view()), name='вывод отдельного поста'),
+    path('<int:pk>', SpecificNews.as_view(), name='вывод отдельного поста'),
     path('create/', NewsCreate.as_view(), name='создание новости'),
     path('<int:pk>/edit/', NewsUpdate.as_view(), name='редактирование новости'),
     path('<int:pk>/delete/', NewsDelete.as_view(), name='удаление новости'),
-    path('category/<int:pk>', ProductsByCategory.as_view(), name='товары по категории'),
+    path('category/<int:pk>', cache_page(60)(ProductsByCategory.as_view()), name='товары по категории'),
     path('category/<int:pk>/subscribe', subscribe, name='подписка на категорию'),
     path('category/<int:pk>/unsubscribe', unsubscribe, name='отписаться от категории'),
 ]
