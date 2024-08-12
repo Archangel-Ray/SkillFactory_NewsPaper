@@ -3,6 +3,7 @@ from datetime import date
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.core.cache import cache
 from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import get_object_or_404, render, redirect
 from django.template.loader import render_to_string
@@ -43,6 +44,16 @@ class SpecificNews(DetailView):
     model = Post
     template_name = 'specific_news.html'
     context_object_name = 'specific_news'
+    queryset = Post.objects.all()
+
+    def get_object(self, *args, **kwargs):
+        obj = cache.get(f'post-{self.kwargs["pk"]}', None)
+
+        # если объекта нет в кэше, то получаем его и записываем в кэш
+        if not obj:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'post-{self.kwargs["pk"]}', obj)
+        return obj
 
 
 class NewsCreate(PermissionRequiredMixin, CreateView):
