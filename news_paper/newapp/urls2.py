@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import ListOfAllNews, SpecificNews, SearchByNews, NewsCreate, NewsUpdate, NewsDelete
+from .views import NewsCreate, NewsUpdate, NewsDelete
 
 
 urlpatterns = [
