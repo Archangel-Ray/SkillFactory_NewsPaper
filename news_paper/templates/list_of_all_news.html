@@ -1,13 +1,16 @@
 {%extends 'default.html'%}
 
 {% load custom_filters %}
+{% load cache %}
 
 {%block title%}Список всех новостей{%endblock%}
 
 {%block content%}
+{% cache 30 header %}
 <p>Сегодня у нас {{ all_news|length }} новостей</p>
 <h4><a href="{% url 'создание новости' %}">Опубликовать новость.</a> |
     <a href="{% url 'создание статьи' %}">Опубликовать статью.</a></h4>
+{% endcache %}
 {% if all_news %}
 <table>
     <tr>
