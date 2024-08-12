@@ -10,4 +10,5 @@
     <p>Удаляем "{{ object.title }}"?</p>
     <input type="submit" value="Удалить"/>
 </form>
+<a href="{% url 'вывод отдельного поста' object.id %}"><button>Отменить</button></a>
 {% endblock content %}
