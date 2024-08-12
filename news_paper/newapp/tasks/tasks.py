@@ -55,3 +55,11 @@ def get_a_list_of_new_articles():
         )
         msg.attach_alternative(email_message, "text/html")
         msg.send()
+
+
+"""
+запуск периодических задач на Windows в разных окнах терминала:
+$ celery -A news_paper worker -l INFO --pool=solo
+и
+$ celery -A news_paper beat -l INFO
+"""
