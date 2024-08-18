@@ -86,11 +86,14 @@ class Comment(models.Model):
     date_creation = models.DateTimeField(auto_now_add=True)
     rating = models.SmallIntegerField(default=0)
 
-    def __str__(self):
+    def get_author_of_post(self):
         try:
             return self.comment_post.author.author_user.username
         except:
             return self.comment_user.username
+
+    def __str__(self):
+        return f'{self.text[:20]} ...'
 
     def like(self):
         self.rating += 1
