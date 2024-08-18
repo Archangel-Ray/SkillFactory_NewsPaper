@@ -35,8 +35,19 @@ class CategoryAdmin(admin.ModelAdmin):
     get_subscribers.short_description = "Подписчики"
 
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['get_title_post', 'comment_user', 'text', 'date_creation', 'rating', 'get_author_of_post']
+    list_filter = ['comment_user']
+    search_fields = ['text']
+
+    def get_title_post(self, obj):
+        return f'{obj.comment_post.title}'
+
+    get_title_post.short_description = "Название поста"
+
+
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(PostCategory)
-admin.site.register(Comment)
+admin.site.register(Comment, CommentAdmin)
