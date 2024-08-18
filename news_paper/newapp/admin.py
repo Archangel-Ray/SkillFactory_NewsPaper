@@ -16,10 +16,17 @@ set_category_news.short_description = 'Установить статус "Нов
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'author', 'text', 'category_type', 'rating', 'date_creation', ]
+    list_display = ['title', 'author', 'get_post_text', 'category_type', 'rating', 'date_creation', ]
     list_filter = ('author', 'rating', 'date_creation')
     search_fields = ('title', 'text')
     actions = [set_category_article, set_category_news]
+
+    def get_post_text(self, obj):
+        if len(obj.text) >= 50:
+            return f'{obj.text[:50]} ...'
+        return obj.text
+
+    get_post_text.short_description = "Текст поста"
 
 
 class AuthorAdmin(admin.ModelAdmin):
@@ -36,14 +43,21 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['get_title_post', 'comment_user', 'text', 'date_creation', 'rating', 'get_author_of_post']
+    list_display = ['get_title_post', 'comment_user', 'get_comment_text', 'date_creation', 'rating',
+                    'get_author_of_post']
     list_filter = ['comment_user']
     search_fields = ['text']
 
     def get_title_post(self, obj):
         return f'{obj.comment_post.title}'
 
+    def get_comment_text(self, obj):
+        if len(obj.text) >= 50:
+            return f'{obj.text[:50]} ...'
+        return obj.text
+
     get_title_post.short_description = "Название поста"
+    get_comment_text.short_description = "Текст сообщения"
 
 
 admin.site.register(Author, AuthorAdmin)
