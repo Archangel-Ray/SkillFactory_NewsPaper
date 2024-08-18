@@ -49,5 +49,4 @@ class CommentAdmin(admin.ModelAdmin):
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
-admin.site.register(PostCategory)
 admin.site.register(Comment, CommentAdmin)
