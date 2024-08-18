@@ -26,8 +26,17 @@ class AuthorAdmin(admin.ModelAdmin):
     list_display = ['author_user', 'rating_author']
 
 
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['name', 'get_subscribers']
+
+    def get_subscribers(self, obj):
+        return ", ".join([user.username for user in obj.subscribers.all()])
+
+    get_subscribers.short_description = "Подписчики"
+
+
 admin.site.register(Author, AuthorAdmin)
-admin.site.register(Category)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(PostCategory)
 admin.site.register(Comment)
