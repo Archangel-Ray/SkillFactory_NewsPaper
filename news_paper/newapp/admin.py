@@ -22,7 +22,11 @@ class PostAdmin(admin.ModelAdmin):
     actions = [set_category_article, set_category_news]
 
 
-admin.site.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ['author_user', 'rating_author']
+
+
+admin.site.register(Author, AuthorAdmin)
 admin.site.register(Category)
 admin.site.register(Post, PostAdmin)
 admin.site.register(PostCategory)
