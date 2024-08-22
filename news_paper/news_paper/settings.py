@@ -282,4 +282,6 @@ https://youtu.be/nfml4BbBAbE?si=XYzoGGo1XaZmQIoP настройка Джанго
 https://disk.yandex.ru/i/wdjE4z10I6OOFA
 как проверить работу логера:
 https://disk.yandex.ru/i/VU6B7kciMocseg
+как настроить журнал. обучение от Джанго:
+https://docs.djangoproject.com/en/5.1/howto/logging/#logging-how-to
 """
