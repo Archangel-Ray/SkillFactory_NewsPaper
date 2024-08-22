@@ -268,6 +268,13 @@ LOGGING = {
             "class": "logging.StreamHandler",  # выводит сообщение в консоль
             "formatter": "simple_debug",  # формат для отладки
         },
+        # вывод в консоль
+        "console_warning": {
+            "level": "WARNING",  # уровень предупреждения
+            "filters": ["require_debug_true"],  # если включена отладка
+            "class": "logging.StreamHandler",  # выводит сообщение в консоль
+            "formatter": "simple_warning",  # формат для отладки
+        },
         # отправка журнала на почту
         "mail_admins": {
             "level": "ERROR",  # уровень логирования
