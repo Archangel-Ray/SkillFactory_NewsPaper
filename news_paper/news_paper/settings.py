@@ -153,7 +153,7 @@ AUTHENTICATION_BACKENDS = [
     # вход в систему по имени пользователя независимо от `allauth`
     "django.contrib.auth.backends.ModelBackend",
     # специальные методы аутентификации `allauth`,
-    # такие как вход по электронной почте.
+    # такие, как вход по электронной почте.
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 """
@@ -261,16 +261,18 @@ LOGGING = {
     },
     # обработчики. что сделать с сообщением.
     "handlers": {
-        "console": {  # вывод в консоль
-            "level": "INFO",  # уровень логирования
-            "filters": ["require_debug_true"],  # список фильтров
-            "class": "logging.StreamHandler",  # не понял зачем задаётся этот класс.
-            # видимо он и производит действия, которые возложены на этот обработчик.
-            "formatter": "simple",  # форматирование вывода
+        # вывод в консоль
+        "console_basic": {
+            "level": "DEBUG",  # уровень отладки
+            "filters": ["require_debug_true"],  # если включена отладка
+            "class": "logging.StreamHandler",  # выводит сообщение в консоль
+            "formatter": "simple_debug",  # формат для отладки
         },
-        "mail_admins": {  # отправки журнала на почту
+        # отправка журнала на почту
+        "mail_admins": {
             "level": "ERROR",  # уровень логирования
-            "class": "django.utils.log.AdminEmailHandler",
+            "class": "django.utils.log.AdminEmailHandler",  # отправляет сообщение на эл.почту администратору
+            # осталось выяснить что это за администратор и как ему эл.почту присвоить
         },
     },
     # регистратор. первым получает сообщение и определяет куда его направить для обработки.
