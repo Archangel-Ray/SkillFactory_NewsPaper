@@ -233,8 +233,8 @@ LOGGING = {
             "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
             "style": "{",  # стиль форматирования строки
         },
-        "simple": {  # простой формат
-            "format": "{levelname} {message}",  # название уровня логирования и сообщение
+        "simple_debug": {  # простой формат уровня отладки
+            "format": "{asctime} {levelname} {message}",  # время, название уровня логирования и сообщение
             "style": "{",  # стиль форматирования строки
         },
     },
