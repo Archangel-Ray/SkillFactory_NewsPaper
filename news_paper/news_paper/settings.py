@@ -250,9 +250,12 @@ LOGGING = {
     },
     # фильтрация обработки
     "filters": {
-        "require_debug_true": {  # пропускает сообщения когда включён режим отладки
+        # пропускает сообщения когда включён режим отладки
+        "require_debug_true": {
             "()": "django.utils.log.RequireDebugTrue",
-        "require_debug_false": {  # пропускает сообщения когда режим отладки выключен
+        },
+        # пропускает сообщения когда режим отладки выключен
+        "require_debug_false": {
             "()": "django.utils.log.RequireDebugFalse",
         },
     },
@@ -292,7 +295,7 @@ https://dzen.ru/video/watch/664c64d97645c414646bbb04?share_to=link как про
 https://youtu.be/nfml4BbBAbE?si=XYzoGGo1XaZmQIoP настройка Джанго.
 Что нужно сделать по заданию:
 https://disk.yandex.ru/i/wdjE4z10I6OOFA
-как проверить работу логера:
+как проверить работу логгера:
 https://disk.yandex.ru/i/VU6B7kciMocseg
 как настроить журнал. обучение от Джанго:
 https://docs.djangoproject.com/en/5.1/howto/logging/#logging-how-to
