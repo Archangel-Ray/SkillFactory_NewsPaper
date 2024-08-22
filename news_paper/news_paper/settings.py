@@ -320,4 +320,7 @@ https://disk.yandex.ru/i/wdjE4z10I6OOFA
 https://disk.yandex.ru/i/VU6B7kciMocseg
 как настроить журнал. обучение от Джанго:
 https://docs.djangoproject.com/en/5.1/howto/logging/#logging-how-to
+настройка отправки почты:
+https://vivazzi.pro/ru/it/send-email-in-django/
+https://tproger.ru/translations/email-functionality-django
 """
