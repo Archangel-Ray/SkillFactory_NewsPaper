@@ -275,30 +275,30 @@ LOGGING = {
         "console_basic": {
             "level": "DEBUG",  # уровень отладки
             "filters": ["require_debug_true"],  # если включена отладка
-            "class": "logging.StreamHandler",  # выводит сообщение в консоль
+            "class": "logging.StreamHandler",  # выводит в консоль
             "formatter": "simple_debug",  # формат для отладки
         },
         # вывод в консоль
         "console_warning": {
             "level": "WARNING",  # уровень предупреждения
             "filters": ["require_debug_true"],  # если включена отладка
-            "class": "logging.StreamHandler",  # выводит сообщение в консоль
+            "class": "logging.StreamHandler",  # выводит в консоль
             "formatter": "simple_warning",  # формат для отладки
         },
         # вывод в консоль
         "console_error": {
             "level": "ERROR",  # уровень ошибки
             "filters": ["require_debug_true"],  # если включена отладка
-            "class": "logging.StreamHandler",  # выводит сообщение в консоль
+            "class": "logging.StreamHandler",  # выводит в консоль
             "formatter": "simple_error",  # формат для отладки
         },
         # основная запись журнала в файл
         "general": {
             "level": "INFO",  # информационный уровень
             "filters": ["require_debug_false"],  # если отладка выключена
-            "class": "logging.FileHandler",  # записывает сообщение в файл
+            "class": "logging.FileHandler",  # записывает в файл
             "filename": "logs/general.log",  # имя файла и путь к нему
-            "formatter": "general",  # формат уровня "информационный" для записи в основной файл
+            "formatter": "general",  # формат уровня "информационный"
         },
         # отправка журнала на почту
         "mail_admins": {
