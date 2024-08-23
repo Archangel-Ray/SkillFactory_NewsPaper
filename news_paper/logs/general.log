@@ -64,3 +64,11 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8005
 2024-08-23 09:08:01,872 INFO basehttp "GET /news/category/1 HTTP/1.1" 200 6813
 2024-08-23 09:08:18,595 INFO basehttp "GET /news/category/1/subscribe HTTP/1.1" 200 309
 2024-08-23 09:08:25,427 INFO basehttp "GET /news/ HTTP/1.1" 200 7377
+2024-08-23 09:28:27,705 INFO autoreload G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+2024-08-23 09:28:31,237 INFO autoreload Watching for file changes with StatReloader
+2024-08-23 09:28:36,111 INFO autoreload G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+2024-08-23 09:28:41,095 INFO autoreload Watching for file changes with StatReloader
+2024-08-23 09:29:51,479 INFO autoreload G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+2024-08-23 09:29:54,217 INFO autoreload Watching for file changes with StatReloader
+2024-08-23 09:31:38,556 INFO autoreload G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+2024-08-23 09:31:43,335 INFO autoreload Watching for file changes with StatReloader
