@@ -305,7 +305,7 @@ LOGGING = {
             "level": "ERROR",  # уровень ошибки
             "class": "logging.FileHandler",  # записывает в файл
             "filename": "logs/errors.log",  # имя файла и путь к нему
-            "formatter": "errors",  # формат уровня "ошибок"
+            "formatter": "simple_error",  # формат уровня "ошибок"
         },
         # журнал безопасности
         "security": {
