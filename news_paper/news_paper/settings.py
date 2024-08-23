@@ -298,7 +298,7 @@ LOGGING = {
             "filters": ["require_debug_false"],  # если отладка выключена
             "class": "logging.FileHandler",  # записывает в файл
             "filename": "logs/general.log",  # имя файла и путь к нему
-            "formatter": "general",  # формат уровня "информационный"
+            "formatter": "general",  # формат уровня
         },
         # запись журнала ошибок в файл
         "errors": {
@@ -312,11 +312,12 @@ LOGGING = {
             "level": "DEBUG",  # уровень отладки
             "class": "logging.FileHandler",  # записывает в файл
             "filename": "logs/security.log",  # имя файла и путь к нему
-            "formatter": "general",  # формат уровня "информационный"
+            "formatter": "general",  # формат уровня
         },
         # отправка журнала на почту
         "mail_admins": {
             "level": "ERROR",  # уровень логирования
+            "filters": ["require_debug_false"],  # если отладка выключена
             "class": "django.utils.log.AdminEmailHandler",  # отправляет сообщение на эл.почту администратору
             # осталось выяснить что это за администратор и как ему эл.почту присвоить
             "formatter": "errors_by_email",  # формат уровня "ошибок" для отправки на почту
