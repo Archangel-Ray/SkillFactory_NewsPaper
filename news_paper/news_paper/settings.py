@@ -363,6 +363,13 @@ LOGGING = {
             "handlers": ["errors"],
             "propagate": True,  # передавать запись в остальные уровни
         },
+        # безопасность
+        "django.security": {
+            # список обработчиков
+            # в файл
+            "handlers": ["security"],
+            "propagate": True,  # передавать запись в остальные уровни
+        },
     },
 }
 """
