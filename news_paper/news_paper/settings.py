@@ -252,9 +252,9 @@ LOGGING = {
             "format": "{asctime} {levelname} {module} {message}",
             "style": "{",  # стиль форматирования строки
         },
-        "errors": {  # формат уровня "ошибок"
-            # время, название уровня логирования, сообщение, путь к источнику и стек ошибки
-            "format": "{asctime} {levelname} {message} {pathname} {exc_info}",
+        "errors_by_email": {  # формат уровня "ошибок" для отправки на почту
+            # время, название уровня логирования, путь к источнику и сообщение
+            "format": "{asctime} {levelname} {pathname} {message}",
             "style": "{",  # стиль форматирования строки
         },
     },
