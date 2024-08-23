@@ -334,6 +334,12 @@ LOGGING = {
             # в файл, по почте
             "handlers": ["errors", "mail_admins"],
         },
+        # сервер
+        "django.server": {
+            # список обработчиков
+            # в файл
+            "handlers": ["errors"],
+        },
     },
 }
 """
