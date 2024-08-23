@@ -190,6 +190,8 @@ EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = open(
     "G:/Python_projects/all_secret_codes_are_here/Yandex email/email.txt"
 ).read()
+SERVER_EMAIL = DEFAULT_FROM_EMAIL  # адрес сервера
+ADMINS = (("admin", DEFAULT_FROM_EMAIL),)  # список админов
 
 # От django-apscheduler
 # Строка формата для отображения временных меток времени выполнения на сайте администрирования Django.
@@ -319,7 +321,6 @@ LOGGING = {
             "level": "ERROR",  # уровень логирования
             "filters": ["require_debug_false"],  # если отладка выключена
             "class": "django.utils.log.AdminEmailHandler",  # отправляет сообщение на эл.почту администратору
-            # осталось выяснить что это за администратор и как ему эл.почту присвоить
             "formatter": "errors_by_email",  # формат уровня "ошибок" для отправки на почту
         },
     },
