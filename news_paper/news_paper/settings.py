@@ -333,24 +333,28 @@ LOGGING = {
             # список обработчиков
             # в файл, по почте
             "handlers": ["errors", "mail_admins"],
+            "propagate": True,  # передавать запись в остальные уровни
         },
         # сервер
         "django.server": {
             # список обработчиков
             # в файл
             "handlers": ["errors"],
+            "propagate": True,  # передавать запись в остальные уровни
         },
         # шаблоны
         "django.template": {
             # список обработчиков
             # в файл
             "handlers": ["errors"],
+            "propagate": True,  # передавать запись в остальные уровни
         },
         # база данных
         "django.db.backends": {
             # список обработчиков
             # в файл
             "handlers": ["errors"],
+            "propagate": True,  # передавать запись в остальные уровни
         },
     },
 }
