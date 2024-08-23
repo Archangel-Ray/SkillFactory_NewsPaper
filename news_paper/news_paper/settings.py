@@ -340,6 +340,12 @@ LOGGING = {
             # в файл
             "handlers": ["errors"],
         },
+        # сервер
+        "django.template": {
+            # список обработчиков
+            # в файл
+            "handlers": ["errors"],
+        },
     },
 }
 """
