@@ -346,7 +346,7 @@ LOGGING = {
         "django.server": {
             # список обработчиков
             # в файл
-            "handlers": ["errors"],
+            "handlers": ["errors", "mail_admins"],
             "propagate": True,  # передавать запись в остальные уровни
         },
         # шаблоны
