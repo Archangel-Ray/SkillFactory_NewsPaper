@@ -300,6 +300,13 @@ LOGGING = {
             "filename": "logs/general.log",  # имя файла и путь к нему
             "formatter": "general",  # формат уровня "информационный"
         },
+        # запись журнала ошибок в файл
+        "errors": {
+            "level": "ERROR",  # уровень ошибки
+            "class": "logging.FileHandler",  # записывает в файл
+            "filename": "logs/errors.log",  # имя файла и путь к нему
+            "formatter": "errors",  # формат уровня "ошибок"
+        },
         # отправка журнала на почту
         "mail_admins": {
             "level": "ERROR",  # уровень логирования
