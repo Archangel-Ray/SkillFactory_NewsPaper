@@ -307,6 +307,13 @@ LOGGING = {
             "filename": "logs/errors.log",  # имя файла и путь к нему
             "formatter": "errors",  # формат уровня "ошибок"
         },
+        # журнал безопасности
+        "security": {
+            "level": "DEBUG",  # уровень отладки
+            "class": "logging.FileHandler",  # записывает в файл
+            "filename": "logs/security.log",  # имя файла и путь к нему
+            "formatter": "general",  # формат уровня "информационный"
+        },
         # отправка журнала на почту
         "mail_admins": {
             "level": "ERROR",  # уровень логирования
