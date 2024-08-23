@@ -287,6 +287,14 @@ LOGGING = {
             "class": "logging.StreamHandler",  # выводит сообщение в консоль
             "formatter": "simple_error",  # формат для отладки
         },
+        # основная запись журнала в файл
+        "general": {
+            "level": "INFO",  # информационный уровень
+            "filters": ["require_debug_false"],  # если отладка выключена
+            "class": "logging.FileHandler",  # записывает сообщение в файл
+            "filename": "logs/general.log",  # имя файла и путь к нему
+            "formatter": "general",  # формат уровня "информационный" для записи в основной файл
+        },
         # отправка журнала на почту
         "mail_admins": {
             "level": "ERROR",  # уровень логирования
