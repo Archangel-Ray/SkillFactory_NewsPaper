@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-rm+8**+0nf&szdzmeu&if^3^60r68p*@=iu4=(11!n=#j*c*(@
 logger = logging.getLogger("Новостной портал")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["example.com", "127.0.0.1"]
 
