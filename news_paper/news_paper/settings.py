@@ -394,3 +394,7 @@ https://webdevblog.ru/loggirovanie-v-django-nachalnyj-obzor/
 https://vivazzi.pro/ru/it/send-email-in-django/
 https://tproger.ru/translations/email-functionality-django
 """
+
+# Локализация и интернационализация
+# путь к переводчику
+LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
