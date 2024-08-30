@@ -219,6 +219,7 @@ CELERY_RESULT_BACKEND = (
 CELERY_ACCEPT_CONTENT = ["application/json"]  # допустимый формат данных
 CELERY_TASK_SERIALIZER = "json"  # метод сериализации задач
 CELERY_RESULT_SERIALIZER = "json"  # метод сериализации результатов
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
 # ведение журнала событий
 LOGGING = {
