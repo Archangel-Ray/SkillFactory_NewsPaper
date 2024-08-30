@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-30 11:24+0300\n"
+"POT-Creation-Date: 2024-08-30 11:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -116,6 +116,7 @@ msgstr "Edit"
 
 #: .\templates\list_of_all_news.html:37
 #: .\templates\list_of_news_by_category.html:39
+#: .\templates\news_deleting.html:12
 msgid "Удалить"
 msgstr "Delete"
 
@@ -135,3 +136,19 @@ msgstr "Subscribe to this topic"
 #: .\templates\list_of_news_by_category.html:14
 msgid "Отписаться от этой тематики"
 msgstr "Unsubscribe from this topic"
+
+#: .\templates\news_deleting.html:4
+msgid "УДАЛЕНИЕ"
+msgstr "REMOVAL"
+
+#: .\templates\news_deleting.html:7
+msgid "Удаление новости"
+msgstr "Deleting news"
+
+#: .\templates\news_deleting.html:11
+msgid "Удаляем"
+msgstr "Deleting"
+
+#: .\templates\news_deleting.html:16
+msgid "Отменить"
+msgstr "Undo"
