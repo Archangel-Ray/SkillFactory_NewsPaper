@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-30 11:05+0300\n"
+"POT-Creation-Date: 2024-08-30 11:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,6 +55,7 @@ msgid "Выйти"
 msgstr "Log out"
 
 #: .\templates\index.html:13
+#: .\templates\list_of_news_by_category.html:69
 msgid "Все новости"
 msgstr "All News"
 
@@ -79,37 +80,58 @@ msgid "Опубликовать статью"
 msgstr "Publish an article"
 
 #: .\templates\list_of_all_news.html:18
+#: .\templates\list_of_news_by_category.html:20
 msgid "Категория"
 msgstr "Category"
 
 #: .\templates\list_of_all_news.html:19
+#: .\templates\list_of_news_by_category.html:21
 msgid "Тематика"
 msgstr "Topics"
 
 #: .\templates\list_of_all_news.html:20
+#: .\templates\list_of_news_by_category.html:22
 msgid "Автор"
 msgstr "Author"
 
 #: .\templates\list_of_all_news.html:21
+#: .\templates\list_of_news_by_category.html:23
 msgid "Заголовок"
 msgstr "Heading"
 
 #: .\templates\list_of_all_news.html:22
+#: .\templates\list_of_news_by_category.html:24
 msgid "Дата публикации"
 msgstr "Publication date"
 
 #: .\templates\list_of_all_news.html:23
+#: .\templates\list_of_news_by_category.html:25
 msgid "Начало статьи"
 msgstr "Start of article"
 
 #: .\templates\list_of_all_news.html:36
+#: .\templates\list_of_news_by_category.html:38
 msgid "Редактировать"
 msgstr "Edit"
 
 #: .\templates\list_of_all_news.html:37
+#: .\templates\list_of_news_by_category.html:39
 msgid "Удалить"
 msgstr "Delete"
 
 #: .\templates\list_of_all_news.html:45
+#: .\templates\list_of_news_by_category.html:47
 msgid "Новостей нет"
 msgstr "No news"
+
+#: .\templates\list_of_news_by_category.html:9
+msgid "Сообщения на тему"
+msgstr "Messages on the topic"
+
+#: .\templates\list_of_news_by_category.html:12
+msgid "Подписаться на эту тематику"
+msgstr "Subscribe to this topic"
+
+#: .\templates\list_of_news_by_category.html:14
+msgid "Отписаться от этой тематики"
+msgstr "Unsubscribe from this topic"

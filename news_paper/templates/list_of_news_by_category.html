@@ -1,27 +1,28 @@
 {%extends 'default.html'%}
 
 {% load custom_filters %}
+{% load i18n %}
 
 {%block title%}{{ by_category }}{%endblock%}
 
 {%block content%}
-<h1>Сообщения на тему {{ by_category }}</h1>
+<h1>{% trans "Сообщения на тему" %} {{ by_category }}</h1>
 
 {% if is_not_subscriber %}
-<p><a href="{% url 'подписка на категорию' by_category.id %}">Подписаться на эту тематику</a></p>
+<p><a href="{% url 'подписка на категорию' by_category.id %}">{% trans "Подписаться на эту тематику" %}</a></p>
 {% else %}
-<p><a href="{% url 'отписаться от категории' by_category.id %}">Отписаться от этой тематики</a></p>
+<p><a href="{% url 'отписаться от категории' by_category.id %}">{% trans "Отписаться от этой тематики" %}</a></p>
 {% endif %}
 
 {% if list_by_category %}
 <table>
     <tr>
-        <td><b>Категория</b></td>
-        <td><b>Тематика</b></td>
-        <td><h3>Автор</h3></td>
-        <td><h2>Заголовок</h2></td>
-        <td><b>Дата публикации</b></td>
-        <td><h3>Начало статьи</h3></td>
+        <td><b>{% trans "Категория" %}</b></td>
+        <td><b>{% trans "Тематика" %}</b></td>
+        <td><h3>{% trans "Автор" %}</h3></td>
+        <td><h2>{% trans "Заголовок" %}</h2></td>
+        <td><b>{% trans "Дата публикации" %}</b></td>
+        <td><h3>{% trans "Начало статьи" %}</h3></td>
     </tr>
     {% for news in list_by_category %}
     <tr>
@@ -34,8 +35,8 @@
         <td>{{ news.author }}</td>
         <td>
             <a href="{% url 'вывод отдельного поста' news.id %}">{{ news.title|censor }}</a> (
-            <a href="{% url 'редактирование новости' news.id %}"><u>Редактировать</u></a> /
-            <a href="{% url 'удаление новости' news.id %}"><u>Удалить</u></a>)
+            <a href="{% url 'редактирование новости' news.id %}"><u>{% trans "Редактировать" %}</u></a> /
+            <a href="{% url 'удаление новости' news.id %}"><u>{% trans "Удалить" %}</u></a>)
         </td>
         <td>{{ news.date_creation|date:'M d Y' }}</td>
         <td>{{ news.text|censor|truncatewords:20 }}</td>
@@ -43,7 +44,7 @@
     {% endfor %}
 </table>
 {% else %}
-<h2>Новостей нет!</h2>
+<h2>{% trans "Новостей нет" %}!</h2>
 {%endif%}
 
 {# пагинация #}
@@ -65,5 +66,5 @@
 {% endif %}
 {% endif %}
 
-<h1><a href="/news/">Все новости</a></h1>
+<h1><a href="/news/">{% trans "Все новости" %}</a></h1>
 {%endblock%}
