@@ -28,7 +28,7 @@ msgstr "You are already subscribed to the topic"
 
 #: .\newapp\views.py:170
 msgid "Отключена подписка на рассылку по теме"
-msgstr "Subscription to newsletter on topic is disabled"
+msgstr "Newsletter subscription disabled. Topic is"
 
 #: .\newapp\views.py:189
 msgid ""
