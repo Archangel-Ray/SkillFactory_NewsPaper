@@ -8,6 +8,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import get_object_or_404, render
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
+from django.utils.translation import gettext
 from django.views.generic import (
     ListView,
     DetailView,
@@ -134,7 +135,7 @@ def subscribe(request, pk):
     if not category.subscribers.filter(id=user.id).exists():
         category.subscribers.add(user)
 
-        message = "Вы подписались на рассылку новостей по теме"
+        message = gettext("Вы подписались на рассылку новостей по теме")
 
         email_message = render_to_string(
             "mail/successful_subscription.html",
@@ -145,7 +146,7 @@ def subscribe(request, pk):
         )
 
         msg = EmailMultiAlternatives(
-            subject=f"Подписка на тему: {category}",
+            subject=f"{gettext('Подписка на тему')}: {category}",
             body=message,
             from_email=settings.DEFAULT_FROM_EMAIL,
             to=[user.email],
@@ -154,7 +155,7 @@ def subscribe(request, pk):
         msg.send()
 
     else:
-        message = "Вы уже подписаны на тему"
+        message = gettext("Вы уже подписаны на тему")
 
     return render(request, "subscribe.html", {"category": category, "message": message})
 
@@ -166,7 +167,7 @@ def unsubscribe(request, pk):
     if category.subscribers.filter(id=user.id).exists():
         category.subscribers.remove(user)
 
-        message = "Отключена подписка на рассылку по теме"
+        message = gettext("Отключена подписка на рассылку по теме")
 
         email_message = render_to_string(
             "mail/subscription_cancellation_message.html",
@@ -177,7 +178,7 @@ def unsubscribe(request, pk):
         )
 
         msg = EmailMultiAlternatives(
-            subject=f"Прекращена подписка на тему: {category}",
+            subject=f"{gettext('Прекращена подписка на тему')}: {category}",
             body=message,
             from_email=settings.DEFAULT_FROM_EMAIL,
             to=[user.email],
@@ -185,5 +186,5 @@ def unsubscribe(request, pk):
         msg.attach_alternative(email_message, "text/html")
         msg.send()
     else:
-        message = "Не получается.\nВозможно, Вы не были подписаны на тему"
+        message = gettext("Не получается.\nВозможно, Вы не были подписаны на тему")
     return render(request, "subscribe.html", {"category": category, "message": message})
