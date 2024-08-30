@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-30 11:38+0300\n"
+"POT-Creation-Date: 2024-08-30 11:50+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -152,3 +152,15 @@ msgstr "Deleting"
 #: .\templates\news_deleting.html:16
 msgid "Отменить"
 msgstr "Undo"
+
+#: .\templates\news_editing.html:4
+msgid "Редактирование новости"
+msgstr "Editing news"
+
+#: .\templates\news_editing.html:7
+msgid "Новость"
+msgstr "News"
+
+#: .\templates\news_editing.html:12
+msgid "Сохранить"
+msgstr "Save"

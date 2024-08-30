@@ -1,13 +1,15 @@
 {% extends 'default.html' %}
+{% load i18n %}
 
-{% block title %}Редактирование новости{% endblock %}
+{% block title %}{% trans "Редактирование новости" %}{% endblock %}
 
 {% block content %}
-<h1>Новость</h1>
+<h1>{% trans "Новость" %}</h1>
 <hr>
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Сохранить"/>
+    {% trans "Сохранить" as save_button %}
+    <input type="submit" value="{{save_button}}"/>
 </form>
 {% endblock %}
