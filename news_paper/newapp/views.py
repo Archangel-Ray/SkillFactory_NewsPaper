@@ -5,10 +5,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.cache import cache
 from django.core.mail import EmailMultiAlternatives
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import get_object_or_404, render
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView,
+)
 
 from newapp.filters import ProductFilter
 from newapp.forms import PostForm
@@ -17,16 +23,16 @@ from .models import Post, Category
 
 class ListOfAllNews(ListView):
     model = Post
-    ordering = '-date_creation'
-    template_name = 'list_of_all_news.html'
-    context_object_name = 'all_news'
+    ordering = "-date_creation"
+    template_name = "list_of_all_news.html"
+    context_object_name = "all_news"
     paginate_by = 10
 
 
 class SearchByNews(ListView):
     model = Post
-    template_name = 'news_search.html'
-    context_object_name = 'search_news'
+    template_name = "news_search.html"
+    context_object_name = "search_news"
     paginate_by = 10
 
     def get_queryset(self):
@@ -36,14 +42,14 @@ class SearchByNews(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['filterset'] = self.filterset
+        context["filterset"] = self.filterset
         return context
 
 
 class SpecificNews(DetailView):
     model = Post
-    template_name = 'specific_news.html'
-    context_object_name = 'specific_news'
+    template_name = "specific_news.html"
+    context_object_name = "specific_news"
     queryset = Post.objects.all()
 
     def get_object(self, *args, **kwargs):
@@ -59,17 +65,24 @@ class SpecificNews(DetailView):
 class NewsCreate(PermissionRequiredMixin, CreateView):
     form_class = PostForm
     model = Post
-    template_name = 'news_editing.html'
-    permission_required = ('newapp.add_post',)
+    template_name = "news_editing.html"
+    permission_required = ("newapp.add_post",)
 
     def form_valid(self, form):
         new_post = form.save(commit=False)
 
-        if Post.objects.filter(author=new_post.author, date_creation__date=date.today()).count() >= 3:
-            return render(self.request, 'post_limit_per_day.html', {'author': new_post.author})
+        if (
+            Post.objects.filter(
+                author=new_post.author, date_creation__date=date.today()
+            ).count()
+            >= 3
+        ):
+            return render(
+                self.request, "post_limit_per_day.html", {"author": new_post.author}
+            )
 
-        if 'news' in self.request.path:
-            new_post.category_type = 'NW'
+        if "news" in self.request.path:
+            new_post.category_type = "NW"
 
         return super().form_valid(form)
 
@@ -77,27 +90,29 @@ class NewsCreate(PermissionRequiredMixin, CreateView):
 class NewsUpdate(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     form_class = PostForm
     model = Post
-    template_name = 'news_editing.html'
-    permission_required = ('newapp.change_post',)
+    template_name = "news_editing.html"
+    permission_required = ("newapp.change_post",)
 
 
 class NewsDelete(DeleteView):
     model = Post
-    template_name = 'news_deleting.html'
-    success_url = reverse_lazy('список всех постов')
+    template_name = "news_deleting.html"
+    success_url = reverse_lazy("список всех постов")
 
 
 class ProductsByCategory(ListOfAllNews):
     model = Post
-    template_name = 'list_of_news_by_category.html'
-    context_object_name = 'list_by_category'
+    template_name = "list_of_news_by_category.html"
+    context_object_name = "list_by_category"
 
     def get_queryset(self):
         """
         Фильтрует новости по полученной категории
         """
-        self.by_category = get_object_or_404(Category, id=self.kwargs['pk'])
-        queryset = Post.objects.filter(post_category=self.by_category).order_by('-date_creation')
+        self.by_category = get_object_or_404(Category, id=self.kwargs["pk"])
+        queryset = Post.objects.filter(post_category=self.by_category).order_by(
+            "-date_creation"
+        )
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -105,8 +120,10 @@ class ProductsByCategory(ListOfAllNews):
         Получает статус пользователя по текущей категории
         """
         context = super().get_context_data(**kwargs)
-        context['is_not_subscriber'] = self.request.user not in self.by_category.subscribers.all()
-        context['by_category'] = self.by_category
+        context["is_not_subscriber"] = (
+            self.request.user not in self.by_category.subscribers.all()
+        )
+        context["by_category"] = self.by_category
         return context
 
 
@@ -117,18 +134,18 @@ def subscribe(request, pk):
     if not category.subscribers.filter(id=user.id).exists():
         category.subscribers.add(user)
 
-        message = 'Вы подписались на рассылку новостей по теме'
+        message = "Вы подписались на рассылку новостей по теме"
 
         email_message = render_to_string(
-            'mail/successful_subscription.html',
+            "mail/successful_subscription.html",
             {
-                'by_category': category,
-                'name': user.username,
+                "by_category": category,
+                "name": user.username,
             },
         )
 
         msg = EmailMultiAlternatives(
-            subject=f'Подписка на тему: {category}',
+            subject=f"Подписка на тему: {category}",
             body=message,
             from_email=settings.DEFAULT_FROM_EMAIL,
             to=[user.email],
@@ -137,9 +154,9 @@ def subscribe(request, pk):
         msg.send()
 
     else:
-        message = 'Вы уже подписаны на тему'
+        message = "Вы уже подписаны на тему"
 
-    return render(request, 'subscribe.html', {'category': category, 'message': message})
+    return render(request, "subscribe.html", {"category": category, "message": message})
 
 
 @login_required
@@ -149,18 +166,18 @@ def unsubscribe(request, pk):
     if category.subscribers.filter(id=user.id).exists():
         category.subscribers.remove(user)
 
-        message = 'Отключена подписка на рассылку по теме'
+        message = "Отключена подписка на рассылку по теме"
 
         email_message = render_to_string(
-            'mail/subscription_cancellation_message.html',
+            "mail/subscription_cancellation_message.html",
             {
-                'by_category': category,
-                'name': user.username,
+                "by_category": category,
+                "name": user.username,
             },
         )
 
         msg = EmailMultiAlternatives(
-            subject=f'Прекращена подписка на тему: {category}',
+            subject=f"Прекращена подписка на тему: {category}",
             body=message,
             from_email=settings.DEFAULT_FROM_EMAIL,
             to=[user.email],
@@ -168,5 +185,5 @@ def unsubscribe(request, pk):
         msg.attach_alternative(email_message, "text/html")
         msg.send()
     else:
-        message = 'Не получается.\nВозможно, Вы не были подписаны на тему'
-    return render(request, 'subscribe.html', {'category': category, 'message': message})
+        message = "Не получается.\nВозможно, Вы не были подписаны на тему"
+    return render(request, "subscribe.html", {"category": category, "message": message})
