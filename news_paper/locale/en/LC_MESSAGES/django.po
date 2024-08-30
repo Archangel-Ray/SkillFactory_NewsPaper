@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-30 10:32+0300\n"
+"POT-Creation-Date: 2024-08-30 10:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,3 +41,19 @@ msgstr ""
 #: .\templates\default.html:9
 msgid "Личный кабинет"
 msgstr "Personal account"
+
+#: .\templates\index.html:5
+msgid "Вы вошли под именем"
+msgstr "You are logged in as"
+
+#: .\templates\index.html:8
+msgid "Стать Автором"
+msgstr "Become an Author"
+
+#: .\templates\index.html:11
+msgid "Выйти"
+msgstr "Log out"
+
+#: .\templates\index.html:13
+msgid "Все новости"
+msgstr "All News"
