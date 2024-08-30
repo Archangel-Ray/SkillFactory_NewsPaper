@@ -2,24 +2,25 @@
 
 {% load custom_filters %}
 {% load cache %}
+{% load i18n %}
 
-{%block title%}Список всех новостей{%endblock%}
+{%block title%}{% trans "Список всех новостей" %}{%endblock%}
 
 {%block content%}
 {% cache 30 header %}
-<p>Сегодня у нас {{ all_news|length }} новостей</p>
-<h4><a href="{% url 'создание новости' %}">Опубликовать новость.</a> |
-    <a href="{% url 'создание статьи' %}">Опубликовать статью.</a></h4>
+<p>{% trans "Сегодня у нас" %} {{ all_news|length }} {% trans "новостей" %}</p>
+<h4><a href="{% url 'создание новости' %}">{% trans "Опубликовать новость" %}.</a> |
+    <a href="{% url 'создание статьи' %}">{% trans "Опубликовать статью" %}.</a></h4>
 {% endcache %}
 {% if all_news %}
 <table>
     <tr>
-        <td><b>Категория</b></td>
-        <td><b>Тематика</b></td>
-        <td><h3>Автор</h3></td>
-        <td><h2>Заголовок</h2></td>
-        <td><b>Дата публикации</b></td>
-        <td><h3>Начало статьи</h3></td>
+        <td><b>{% trans "Категория" %}</b></td>
+        <td><b>{% trans "Тематика" %}</b></td>
+        <td><h3>{% trans "Автор" %}</h3></td>
+        <td><h2>{% trans "Заголовок" %}</h2></td>
+        <td><b>{% trans "Дата публикации" %}</b></td>
+        <td><h3>{% trans "Начало статьи" %}</h3></td>
     </tr>
     {% for news in all_news %}
     <tr>
@@ -32,8 +33,8 @@
         <td>{{ news.author }}</td>
         <td>
             <a href="{% url 'вывод отдельного поста' news.id %}">{{ news.title|censor }}</a> (
-            <a href="{% url 'редактирование новости' news.id %}"><u>Редактировать</u></a> /
-            <a href="{% url 'удаление новости' news.id %}"><u>Удалить</u></a>)
+            <a href="{% url 'редактирование новости' news.id %}"><u>{% trans "Редактировать" %}</u></a> /
+            <a href="{% url 'удаление новости' news.id %}"><u>{% trans "Удалить" %}</u></a>)
         </td>
         <td>{{ news.date_creation|date:'M d Y' }}</td>
         <td>{{ news.text|censor|truncatewords:20 }}</td>
@@ -41,7 +42,7 @@
     {% endfor %}
 </table>
 {% else %}
-<h2>Новостей нет!</h2>
+<h2>{% trans "Новостей нет" %}!</h2>
 {%endif%}
 
 {# пагинация #}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-30 10:46+0300\n"
+"POT-Creation-Date: 2024-08-30 11:05+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,3 +57,59 @@ msgstr "Log out"
 #: .\templates\index.html:13
 msgid "Все новости"
 msgstr "All News"
+
+#: .\templates\list_of_all_news.html:7
+msgid "Список всех новостей"
+msgstr "List of all news"
+
+#: .\templates\list_of_all_news.html:11
+msgid "Сегодня у нас"
+msgstr "Today we have"
+
+#: .\templates\list_of_all_news.html:11
+msgid "новостей"
+msgstr "news"
+
+#: .\templates\list_of_all_news.html:12
+msgid "Опубликовать новость"
+msgstr "Publish news"
+
+#: .\templates\list_of_all_news.html:13
+msgid "Опубликовать статью"
+msgstr "Publish an article"
+
+#: .\templates\list_of_all_news.html:18
+msgid "Категория"
+msgstr "Category"
+
+#: .\templates\list_of_all_news.html:19
+msgid "Тематика"
+msgstr "Topics"
+
+#: .\templates\list_of_all_news.html:20
+msgid "Автор"
+msgstr "Author"
+
+#: .\templates\list_of_all_news.html:21
+msgid "Заголовок"
+msgstr "Heading"
+
+#: .\templates\list_of_all_news.html:22
+msgid "Дата публикации"
+msgstr "Publication date"
+
+#: .\templates\list_of_all_news.html:23
+msgid "Начало статьи"
+msgstr "Start of article"
+
+#: .\templates\list_of_all_news.html:36
+msgid "Редактировать"
+msgstr "Edit"
+
+#: .\templates\list_of_all_news.html:37
+msgid "Удалить"
+msgstr "Delete"
+
+#: .\templates\list_of_all_news.html:45
+msgid "Новостей нет"
+msgstr "No news"
