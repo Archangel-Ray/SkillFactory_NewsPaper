@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-31 10:47+0300\n"
+"POT-Creation-Date: 2024-08-31 10:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,7 +67,7 @@ msgid "Выйти"
 msgstr "Log out"
 
 #: .\templates\index.html:13 .\templates\list_of_news_by_category.html:69
-#: .\templates\news_search.html:56
+#: .\templates\news_search.html:56 .\templates\specific_news.html:21
 msgid "Все новости"
 msgstr "All News"
 
@@ -123,12 +123,13 @@ msgstr "Start of article"
 
 #: .\templates\list_of_all_news.html:36
 #: .\templates\list_of_news_by_category.html:38
+#: .\templates\specific_news.html:16
 msgid "Редактировать"
 msgstr "Edit"
 
 #: .\templates\list_of_all_news.html:37
 #: .\templates\list_of_news_by_category.html:39
-#: .\templates\news_deleting.html:12
+#: .\templates\news_deleting.html:12 .\templates\specific_news.html:19
 msgid "Удалить"
 msgstr "Delete"
 
@@ -169,7 +170,7 @@ msgstr "Undo"
 msgid "Редактирование новости"
 msgstr "Editing news"
 
-#: .\templates\news_editing.html:7
+#: .\templates\news_editing.html:7 .\templates\specific_news.html:6
 msgid "Новость"
 msgstr "News"
 
@@ -208,3 +209,11 @@ msgstr "Maybe we should read something"
 #: .\templates\post_limit_per_day.html:10
 msgid "Завтра ещё что-то напишешь"
 msgstr "Tomorrow you will write something else"
+
+#: .\templates\specific_news.html:9
+msgid "Автор статьи"
+msgstr "Author of the publication"
+
+#: .\templates\specific_news.html:13
+msgid "рейтинг"
+msgstr "rating"

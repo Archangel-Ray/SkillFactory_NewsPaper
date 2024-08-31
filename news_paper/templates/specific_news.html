@@ -1,18 +1,23 @@
 {%extends 'default.html'%}
+{% load i18n %}
 
 {% load custom_filters %}
 
-{%block title%}Новость{%endblock%}
+{%block title%}{% trans "Новость" %}{%endblock%}
 
 {%block content%}
-<h3><sup>Автор статьи:</sup> {{specific_news.author.author_user}}</h3>
+<h3><sup>{% trans "Автор статьи" %}:</sup> {{specific_news.author.author_user}}</h3>
 <h1>{{ specific_news.title|censor }}</h1>
 <h6>{{ specific_news.date_creation|date:'d.m.Y' }}</h6>
 <p>{{ specific_news.text|censor }}</p>
-<h4>рейтинг - {{.rating}}</h4>
+<h4>{% trans "рейтинг" %} - {{.rating}}</h4>
 
-<a href="{% url 'редактирование новости' specific_news.id %}"><button>Редактировать</button></a>
-<a href="{% url 'удаление новости' specific_news.id %}"><button>Удалить</button></a>
-<h1><a href="/news/">Все новости</a></h1>
+<a href="{% url 'редактирование новости' specific_news.id %}">
+    <button>{% trans "Редактировать" %}</button>
+</a>
+<a href="{% url 'удаление новости' specific_news.id %}">
+    <button>{% trans "Удалить" %}</button>
+</a>
+<h1><a href="/news/">{% trans "Все новости" %}</a></h1>
 
 {%endblock%}
