@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-31 10:26+0300\n"
+"POT-Creation-Date: 2024-08-31 10:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -184,3 +184,27 @@ msgstr "Search by news"
 #: .\templates\news_search.html:12
 msgid "Найти"
 msgstr "Find"
+
+#: .\templates\post_limit_per_day.html:5
+msgid "извини"
+msgstr "sorry"
+
+#: .\templates\post_limit_per_day.html:6
+msgid "Забыл предупредить"
+msgstr "Forgot to warn"
+
+#: .\templates\post_limit_per_day.html:7
+msgid "Сегодня можно опубликоваться только три раза"
+msgstr "Today you can only publish three times"
+
+#: .\templates\post_limit_per_day.html:8
+msgid "Как у рыбки"
+msgstr "Like at Pushkin’s fish"
+
+#: .\templates\post_limit_per_day.html:9
+msgid "Может что-то почитаем"
+msgstr "Maybe we should read something"
+
+#: .\templates\post_limit_per_day.html:10
+msgid "Завтра ещё что-то напишешь"
+msgstr "Tomorrow you will write something else"
