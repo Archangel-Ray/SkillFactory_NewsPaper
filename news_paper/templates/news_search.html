@@ -1,14 +1,16 @@
 {%extends 'default.html'%}
 
 {% load custom_filters %}
+{% load i18n %}
 
-{%block title%}Поиск по новостям{%endblock%}
+{%block title%}{% trans "Поиск по новостям" %}{%endblock%}
 
 {%block content%}
 
 <form action="" method="get">
     {{ filterset.form.as_p }}
-    <input type="submit" value="Найти"/>
+    {% trans "Найти" as search_button %}
+    <input type="submit" value="{{search_button}}"/>
 </form>
 
 <hr>
@@ -16,9 +18,9 @@
 {% if search_news %}
 <table>
     <tr>
-        <td>Заголовок</td>
-        <td>дата публикации</td>
-        <td>начало статьи</td>
+        <td>{% trans "Заголовок" %}</td>
+        <td>{% trans "Дата публикации" %}</td>
+        <td>{% trans "Начало статьи" %}</td>
     </tr>
     {% for news in search_news %}
     <tr>
@@ -29,7 +31,7 @@
     {% endfor %}
 </table>
 {% else %}
-<h2>Новостей нет!</h2>
+<h2>{% trans "Новостей нет" %}!</h2>
 {%endif%}
 
 {# пагинация #}
