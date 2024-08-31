@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load i18n %}
+
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Новости за неделю</title>
+    <title>{% trans "Новости за неделю" %}</title>
 </head>
 <body>
-<p>Посты вышедшие на прошлой неделе на тему <b>{{by_category}}:</b>
-{% for post in posts %}
-    <h3><a href="http://127.0.0.1:8005{% url 'вывод отдельного поста' post.id %}">{{post.title}}</a></h3>
-    <p>{{post.text|slice:":100"}}...</p>
+<p>{% trans "Посты вышедшие на прошлой неделе на тему" %} <b>{{by_category}}:</b>
+    {% for post in posts %}
+<h3><a href="http://127.0.0.1:8005{% url 'вывод отдельного поста' post.id %}">{{post.title}}</a></h3>
+<p>{{post.text|slice:":100"}}...</p>
 {% endfor %}
 </body>
 </html>

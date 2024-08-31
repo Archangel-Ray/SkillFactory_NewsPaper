@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-31 11:14+0300\n"
+"POT-Creation-Date: 2024-08-31 12:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -174,6 +174,60 @@ msgstr "Subscribe to this topic"
 #: .\templates\list_of_news_by_category.html:14
 msgid "Отписаться от этой тематики"
 msgstr "Unsubscribe from this topic"
+
+#: .\templates\mail\message_about_new_post.html:9
+msgid "Так как Вы подписаны на тему"
+msgstr "Since you are subscribed to the topic"
+
+#: .\templates\mail\message_about_new_post.html:10
+msgid "сообщаем, что в этой теме появилось новое сообщение"
+msgstr "we inform you that a new message has appeared in this topic"
+
+#: .\templates\mail\subscription_cancellation_message.html:7
+msgid "Отключение подписки"
+msgstr "Disabling a subscription"
+
+#: .\templates\mail\subscription_cancellation_message.html:10
+#: .\templates\mail\successful_subscription.html:10
+msgid "Приветствуем Вас"
+msgstr "Welcome"
+
+#: .\templates\mail\subscription_cancellation_message.html:11
+msgid "Сожалеем, что нам пришлось отключить Вас от подписки на тему"
+msgstr "We're sorry we had to unsubscribe you from this topic"
+
+#: .\templates\mail\subscription_cancellation_message.html:12
+msgid ""
+"но мы сделали это! Теперь Вам не будут приходить подборки свежайших новостей"
+msgstr "but we did it! Now you will not receive the latest news collections"
+
+#: .\templates\mail\successful_subscription.html:7
+msgid "Подписка"
+msgstr "Subscription"
+
+#: .\templates\mail\successful_subscription.html:11
+msgid "Рады сообщить, что Вы успешно подписались на тему"
+msgstr ""
+"We are glad to announce that you have successfully subscribed to the topic"
+
+#: .\templates\mail\successful_subscription.html:12
+msgid ""
+"и теперь как только появится что-то новенькое мы обязательно вам пришлём"
+msgstr "and now as soon as something new appears, we will definitely send you"
+
+#: .\templates\mail\successful_subscription.html:13
+msgid ""
+"А ещё, Вам каждую неделю будет приходить подборка всех постов по этой теме"
+msgstr ""
+"Also, you will receive a selection of all posts on this topic every week"
+
+#: .\templates\mail\weekly_posts_distribution.html:7
+msgid "Новости за неделю"
+msgstr "News from last week"
+
+#: .\templates\mail\weekly_posts_distribution.html:10
+msgid "Посты вышедшие на прошлой неделе на тему"
+msgstr "Posts published last week on the topic"
 
 #: .\templates\news_deleting.html:4
 msgid "УДАЛЕНИЕ"

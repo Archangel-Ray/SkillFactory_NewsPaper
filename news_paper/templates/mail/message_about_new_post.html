@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load i18n %}
+
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
 </head>
 <body>
-<p>Так как Вы подписаны на тему <b>{{by_category}}</b> сообщаем, что в этой теме появилось новое сообщение:</p>
+<p>{% trans "Так как Вы подписаны на тему" %} <b>{{by_category}}</b>
+    {% trans "сообщаем, что в этой теме появилось новое сообщение" %}:
+</p>
 <h1><a href="http://127.0.0.1:8005{% url 'вывод отдельного поста' post.id %}">{{post.title}}</a></h1>
 <p>{{post.text|slice:":100"}}...</p>
 </body>
