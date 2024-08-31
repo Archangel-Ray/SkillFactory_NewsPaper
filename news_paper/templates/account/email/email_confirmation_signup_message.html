@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+{% load i18n %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Проверка эл.почты</title>
+    <title>{% trans "Проверка эл.почты" %}</title>
 </head>
 <body>
 {% load account %} <!-- Загружаем тег, который позволит получить нам ссылку на подтверждение -->
-<h1>Благодарим за регистрацию {{user.username}}!</h1>
-<h3>Пожалуйста, кликните <a href="{{ activate_url }}">эту ссылку</a> чтобы активировать вашу учетную запись</h3>
+<h1>{% trans "Благодарим за регистрацию" %} {{user.username}}!</h1>
+<h3>{% trans "Пожалуйста" %}, {% trans "кликните" %}
+    <a href="{{ activate_url }}">{% trans "эту ссылку" %}</a>
+    {% trans "чтобы активировать вашу учетную запись" %}</h3>
 <!-- Вставляем ссылку на активацию -->
 </body>
 </html>

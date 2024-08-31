@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-31 11:02+0300\n"
+"POT-Creation-Date: 2024-08-31 11:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,6 +45,30 @@ msgid ""
 msgstr ""
 "It doesn't work.\n"
 "Perhaps you were not subscribed to the topic"
+
+#: .\templates\account\email\email_confirmation_signup_message.html:8
+msgid "Проверка эл.почты"
+msgstr "Checking email"
+
+#: .\templates\account\email\email_confirmation_signup_message.html:12
+msgid "Благодарим за регистрацию"
+msgstr "Thank you for registering"
+
+#: .\templates\account\email\email_confirmation_signup_message.html:13
+msgid "Пожалуйста"
+msgstr "Please"
+
+#: .\templates\account\email\email_confirmation_signup_message.html:13
+msgid "кликните"
+msgstr "click"
+
+#: .\templates\account\email\email_confirmation_signup_message.html:14
+msgid "эту ссылку"
+msgstr "this link"
+
+#: .\templates\account\email\email_confirmation_signup_message.html:15
+msgid "чтобы активировать вашу учетную запись"
+msgstr "to activate your account"
 
 #: .\templates\default.html:9
 msgid "Личный кабинет"
