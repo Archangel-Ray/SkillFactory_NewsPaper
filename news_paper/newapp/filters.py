@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import gettext
 from django_filters import FilterSet, ModelChoiceFilter, DateFilter
 
 from .models import Post, Author
@@ -8,8 +9,8 @@ class ProductFilter(FilterSet):
     category_name_one_field = ModelChoiceFilter(
         field_name="author",
         queryset=Author.objects.all(),
-        label="Автор статьи или новости",
-        empty_label="все",
+        label=gettext("Автор статьи или новости"),
+        empty_label=gettext("все"),
     )
 
     more_than_this_date = DateFilter(
