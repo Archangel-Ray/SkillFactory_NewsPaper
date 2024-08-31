@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-31 10:12+0300\n"
+"POT-Creation-Date: 2024-08-31 10:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,6 +67,7 @@ msgid "Выйти"
 msgstr "Log out"
 
 #: .\templates\index.html:13 .\templates\list_of_news_by_category.html:69
+#: .\templates\news_search.html:56
 msgid "Все новости"
 msgstr "All News"
 
