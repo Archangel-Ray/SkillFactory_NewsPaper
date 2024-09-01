@@ -20,6 +20,7 @@ from django.urls import path, include
 from .views import IndexView, upgrade_me
 
 urlpatterns = [
+    path("i18n/", include("django.conf.urls.i18n")),
     path("admin/", admin.site.urls),
     path("", IndexView.as_view(), name="вход"),
     path("upgrade/", upgrade_me, name="стать автором"),
