@@ -400,3 +400,8 @@ https://tproger.ru/translations/email-functionality-django
 # Локализация и интернационализация
 # путь к переводчику
 LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
+"""
+памятка запуска формирования словаря и скомпилированного файла
+python manage.py makemessages -l en
+python manage.py compilemessages
+"""
