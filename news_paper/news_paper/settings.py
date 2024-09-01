@@ -127,14 +127,25 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
+# Локализация и интернационализация
+# Код языка по умолчанию
 LANGUAGE_CODE = "ru-ru"
-
+# поддерживаемые языки
+LANGUAGES = (("ru", "Русский"), ("en", "English"))
+# Список путей к папкам, в которых хранятся файлы локализации
+LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
+"""
+памятка запуска формирования словаря и компиляция файла для локализатора
+python manage.py makemessages -l en
+python manage.py compilemessages
+"""
+# часовой пояс
 TIME_ZONE = "Europe/Moscow"
-
+# использования интернационализации включено
 USE_I18N = True
-
+# использования локализации включено
 USE_L10N = True
-
+# использования часового пояса включено
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
@@ -395,13 +406,4 @@ https://webdevblog.ru/loggirovanie-v-django-nachalnyj-obzor/
 настройка отправки почты:
 https://vivazzi.pro/ru/it/send-email-in-django/
 https://tproger.ru/translations/email-functionality-django
-"""
-
-# Локализация и интернационализация
-# путь к переводчику
-LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
-"""
-памятка запуска формирования словаря и скомпилированного файла
-python manage.py makemessages -l en
-python manage.py compilemessages
 """
