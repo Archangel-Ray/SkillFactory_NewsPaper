@@ -7,6 +7,25 @@
 </head>
 <body>
 <a href="/">{% trans "Личный кабинет" %}</a> | <a href="/news/search/">{% trans "Найти в новостях или статьях" %}</a>
+
+<form action="{% url 'set_language' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ redirect_to }}">
+
+    <select name="language" id="">
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% get_current_language as LANGUAGE_CODE %}
+        {% for language in languages %}
+        <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+            {{language.name_local}}
+        </option>
+        {% endfor %}
+    </select>
+    {% trans "установить" as set_language %}
+    <input type="submit" value="{{set_language}}">
+</form>
+
 {%block content%}{%endblock%}
 </body>
 </html>
