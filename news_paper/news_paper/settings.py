@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["example.com", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',  # обязательно впишите его перед админом
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
