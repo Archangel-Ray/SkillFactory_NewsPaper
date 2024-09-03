@@ -1,4 +1,5 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin
 
 from .models import *
 
@@ -15,7 +16,8 @@ set_category_article.short_description = 'Установить статус "С�
 set_category_news.short_description = 'Установить статус "Новость"'
 
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(admin.ModelAdmin, TranslationAdmin):
+    model = Post
     list_display = ['title', 'author', 'get_post_text', 'category_type', 'rating', 'date_creation', ]
     list_filter = ('author', 'rating', 'date_creation')
     search_fields = ('title', 'text')
@@ -29,11 +31,13 @@ class PostAdmin(admin.ModelAdmin):
     get_post_text.short_description = "Текст поста"
 
 
-class AuthorAdmin(admin.ModelAdmin):
+class AuthorAdmin(admin.ModelAdmin, TranslationAdmin):
+    model = Author
     list_display = ['author_user', 'rating_author']
 
 
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin, TranslationAdmin):
+    model = Category
     list_display = ['name', 'get_subscribers']
 
     def get_subscribers(self, obj):
@@ -42,7 +46,8 @@ class CategoryAdmin(admin.ModelAdmin):
     get_subscribers.short_description = "Подписчики"
 
 
-class CommentAdmin(admin.ModelAdmin):
+class CommentAdmin(admin.ModelAdmin, TranslationAdmin):
+    model = Comment
     list_display = ['get_title_post', 'comment_user', 'get_comment_text', 'date_creation', 'rating',
                     'get_author_of_post']
     list_filter = ['comment_user']
