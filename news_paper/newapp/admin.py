@@ -16,7 +16,7 @@ set_category_article.short_description = 'Установить статус "С�
 set_category_news.short_description = 'Установить статус "Новость"'
 
 
-class PostAdmin(admin.ModelAdmin, TranslationAdmin):
+class PostAdmin(TranslationAdmin, admin.ModelAdmin):
     model = Post
     list_display = ['title', 'author', 'get_post_text', 'category_type', 'rating', 'date_creation', ]
     list_filter = ('author', 'rating', 'date_creation')
@@ -31,12 +31,11 @@ class PostAdmin(admin.ModelAdmin, TranslationAdmin):
     get_post_text.short_description = "Текст поста"
 
 
-class AuthorAdmin(admin.ModelAdmin, TranslationAdmin):
-    model = Author
+class AuthorAdmin(admin.ModelAdmin):
     list_display = ['author_user', 'rating_author']
 
 
-class CategoryAdmin(admin.ModelAdmin, TranslationAdmin):
+class CategoryAdmin(TranslationAdmin, admin.ModelAdmin):
     model = Category
     list_display = ['name', 'get_subscribers']
 
@@ -46,7 +45,7 @@ class CategoryAdmin(admin.ModelAdmin, TranslationAdmin):
     get_subscribers.short_description = "Подписчики"
 
 
-class CommentAdmin(admin.ModelAdmin, TranslationAdmin):
+class CommentAdmin(TranslationAdmin, admin.ModelAdmin):
     model = Comment
     list_display = ['get_title_post', 'comment_user', 'get_comment_text', 'date_creation', 'rating',
                     'get_author_of_post']
