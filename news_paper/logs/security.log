@@ -1,0 +1,1 @@
+2024-09-03 13:07:26,272 WARNING log Forbidden (CSRF token from POST incorrect.): /admin/newapp/post/105/change/
