@@ -8,6 +8,18 @@
 
 {%block title%}{% trans "Список всех новостей" %}{%endblock%}
 
+{% block style_background_color %}
+    <!-- Если сейчас больше чем 19 или же меньше 6, то выводим тёмную тему, иначе выводим светлую -->
+    <style>
+        body {background-color:
+        {% if current_time.hour >= 19 or current_time.hour <= 6 %}
+        darkcyan
+        {% else %}
+        powderblue
+        {% endif %};}
+    </style>
+{% endblock %}
+
 {%block content%}
 
 {% get_current_timezone as TIME_ZONE %}
