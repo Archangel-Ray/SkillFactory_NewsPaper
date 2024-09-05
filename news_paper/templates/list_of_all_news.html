@@ -3,10 +3,19 @@
 {% load custom_filters %}
 {% load cache %}
 {% load i18n %}
+<!-- тег для работы с часовыми поясами -->
+{% load tz %}
 
 {%block title%}{% trans "Список всех новостей" %}{%endblock%}
 
 {%block content%}
+
+{% get_current_timezone as TIME_ZONE %}
+<p>Текущий часовой пояс: {{ TIME_ZONE }}</p>
+<h2>{{ current_time|timezone:TIME_ZONE }}</h2> <!-- Отображаем время в выбранном часовом поясе  -->
+
+<hr>
+
 {% cache 30 header %}
 <p>{% trans "Сегодня у нас" %} {{ all_news|length }} {% trans "новостей" %}</p>
 <h4><a href="{% url 'создание новости' %}">{% trans "Опубликовать новость" %}.</a> |
