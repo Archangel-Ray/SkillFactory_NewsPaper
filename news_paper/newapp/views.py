@@ -1,5 +1,6 @@
 from datetime import date
 
+import pytz
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
@@ -8,6 +9,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import get_object_or_404, render
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
+from django.utils import timezone
 from django.utils.translation import gettext
 from django.views.generic import (
     ListView,
@@ -28,6 +30,14 @@ class ListOfAllNews(ListView):
     template_name = "list_of_all_news.html"
     context_object_name = "all_news"
     paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # текущий часовой пояс
+        context['current_time'] = timezone.localtime(timezone.now())
+        # все доступные часовые пояса
+        context['timezones'] = pytz.common_timezones
+        return context
 
 
 class SearchByNews(ListView):
