@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.cache import cache
 from django.core.mail import EmailMultiAlternatives
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.utils import timezone
@@ -38,6 +38,12 @@ class ListOfAllNews(ListView):
         # все доступные часовые пояса
         context['timezones'] = pytz.common_timezones
         return context
+
+    # по пост-запросу будем добавлять в сессию часовой пояс,
+    # который и будет обрабатываться написанным нами ранее middleware
+    def post(self, request):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('список всех постов')
 
 
 class SearchByNews(ListView):
