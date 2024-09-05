@@ -41,10 +41,10 @@
 <hr>
 
 {% cache 30 header %}
+{% endcache %}
 <p>{% trans "Сегодня у нас" %} {{ all_news|length }} {% trans "новостей" %}</p>
 <h4><a href="{% url 'создание новости' %}">{% trans "Опубликовать новость" %}.</a> |
     <a href="{% url 'создание статьи' %}">{% trans "Опубликовать статью" %}.</a></h4>
-{% endcache %}
 {% if all_news %}
 <table>
     <tr>
