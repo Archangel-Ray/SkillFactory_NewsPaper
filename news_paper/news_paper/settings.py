@@ -67,6 +67,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # учётная запись от allauth
     "allauth.account.middleware.AccountMiddleware",
+
+    # установка часового пояса для текущего сеанса
+    'newapp.middlewares.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = "news_paper.urls"
