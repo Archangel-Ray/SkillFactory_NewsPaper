@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{%block title%}{%endblock%}</title>
+    {% block style_background_color %}{% endblock %}
 </head>
 <body>
 <form action="{% url 'set_language' %}" method="POST">
