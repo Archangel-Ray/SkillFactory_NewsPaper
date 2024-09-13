@@ -18,10 +18,13 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from newapp.filters import ProductFilter
 from newapp.forms import PostForm
 from .models import Post, Category
+from .serializers import PostSerializer
 
 
 class ListOfAllNews(ListView):
@@ -44,6 +47,12 @@ class ListOfAllNews(ListView):
     def post(self, request):
         request.session['django_timezone'] = request.POST['timezone']
         return redirect('список всех постов')
+
+
+class ListOfNews(generics.ListCreateAPIView):
+    queryset = Post.objects.filter(category_type='NW')
+    serializer_class = PostSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
 class SearchByNews(ListView):
