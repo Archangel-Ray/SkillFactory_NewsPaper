@@ -413,3 +413,8 @@ https://webdevblog.ru/loggirovanie-v-django-nachalnyj-obzor/
 https://vivazzi.pro/ru/it/send-email-in-django/
 https://tproger.ru/translations/email-functionality-django
 """
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 2,
+}
