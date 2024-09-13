@@ -18,6 +18,6 @@
 <a href="{% url 'удаление новости' specific_news.id %}">
     <button>{% trans "Удалить" %}</button>
 </a>
-<h1><a href="/news/">{% trans "Все новости" %}</a></h1>
+<h1><a href="{% url 'список всех постов' %}">{% trans "Все новости" %}</a></h1>
 
 {%endblock%}

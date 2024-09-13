@@ -24,7 +24,8 @@
     {% trans "установить" as set_language %}
     <input type="submit" value="{{set_language}}">
 </form>
-<a href="/">{% trans "Личный кабинет" %}</a> | <a href="/news/search/">{% trans "Найти в новостях или статьях" %}</a>
+<a href="/">{% trans "Личный кабинет" %}</a> | <a href="{% url 'поиск по всем постам' %}">
+    {% trans "Найти в новостях или статьях" %}</a>
 {%block content%}{%endblock%}
 </body>
 </html>

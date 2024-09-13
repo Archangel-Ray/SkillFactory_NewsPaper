@@ -24,7 +24,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", IndexView.as_view(), name="вход"),
     path("upgrade/", upgrade_me, name="стать автором"),
-    path("news/", include("newapp.urls")),
+    path("all_posts/", include("newapp.urls")),
+    path("news/", include("newapp.urls1")),
     path("articles/", include("newapp.urls2")),
     path("accounts/", include("allauth.urls")),
 ]
