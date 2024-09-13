@@ -55,6 +55,12 @@ class ListOfNews(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
+class ListOfArticles(generics.ListCreateAPIView):
+    queryset = Post.objects.filter(category_type='AR')
+    serializer_class = PostSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+
 class SearchByNews(ListView):
     model = Post
     template_name = "news_search.html"
