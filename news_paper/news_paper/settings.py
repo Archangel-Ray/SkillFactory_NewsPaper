@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     # подключение провайдеров
     "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.yandex",
+    # REST API
+    "rest_framework",
     "newapp",
 ]
 
