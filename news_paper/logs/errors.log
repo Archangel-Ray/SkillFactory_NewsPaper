@@ -586,3 +586,73 @@ Traceback (most recent call last):
     raise TemplateSyntaxError(
 django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' по всем постам' from 'поиск по всем постам'
 2024-09-13 13:05:13,665 ERROR G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\core\servers\basehttp.py None "GET / HTTP/1.1" 500 172178
+2024-09-13 16:16:28,170 ERROR G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\utils\log.py (<class 'AssertionError'>, AssertionError('Expected view ListOfNews to be called with a URL keyword argument named "pk". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.'), <traceback object at 0x00000219E5E811C0>) Internal Server Error: /news/
+Traceback (most recent call last):
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\generics.py", line 286, in get
+    return self.retrieve(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+               ^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\generics.py", line 92, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ListOfNews to be called with a URL keyword argument named "pk". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+2024-09-13 16:16:28,198 ERROR G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\core\servers\basehttp.py None "GET /news/ HTTP/1.1" 500 112509
+2024-09-13 16:16:43,543 ERROR G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\utils\log.py (<class 'AssertionError'>, AssertionError('Expected view ListOfNews to be called with a URL keyword argument named "pk". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.'), <traceback object at 0x00000219E6462E80>) Internal Server Error: /news/
+Traceback (most recent call last):
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\generics.py", line 286, in get
+    return self.retrieve(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+               ^^^^^^^^^^^^^^^^^
+  File "G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\rest_framework\generics.py", line 92, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ListOfNews to be called with a URL keyword argument named "pk". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+2024-09-13 16:16:43,547 ERROR G:\Python_projects\SkillFactory\SkillFactory_NewsPaper\.venv\Lib\site-packages\django\core\servers\basehttp.py None "GET /news/ HTTP/1.1" 500 112509
