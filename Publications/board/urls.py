@@ -3,5 +3,5 @@ from django.urls import path
 from .views import main
 
 urlpatterns = [
-    path("", main),
+    path("", main, name='основная страница'),
 ]
