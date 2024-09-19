@@ -129,6 +129,14 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 LOGIN_URL = '/accounts/login/'  # ссылка на форму аутентификации
 LOGIN_REDIRECT_URL = '/'  # ссылка после аутентификации
+
+AUTHENTICATION_BACKENDS = [
+    # Вход в систему по имени пользователя в администраторе Django, независимо от `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # специальные методы аутентификации `allauth`, такие, как вход по электронной почте.
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
