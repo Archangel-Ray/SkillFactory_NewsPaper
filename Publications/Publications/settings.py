@@ -58,6 +58,8 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
 ]
 
+SITE_ID = 1  # номер сайта (если их будет несколько)
+
 ROOT_URLCONF = "Publications.urls"
 
 TEMPLATES = [
