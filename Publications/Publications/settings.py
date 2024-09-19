@@ -53,6 +53,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+
+    # добавление учётной записи в базу:
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "Publications.urls"
