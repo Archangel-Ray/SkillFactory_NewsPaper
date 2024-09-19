@@ -140,3 +140,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+ACCOUNT_EMAIL_REQUIRED = True  # почта обязательна
+ACCOUNT_UNIQUE_EMAIL = True  # поле почты уникально
+ACCOUNT_USERNAME_REQUIRED = False  # выключает обязательное заполнение имени
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # метод аутентификации через поле почты
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # проверка почты (не знаю как подключить)
