@@ -145,3 +145,19 @@ ACCOUNT_UNIQUE_EMAIL = True  # поле почты уникально
 ACCOUNT_USERNAME_REQUIRED = False  # выключает обязательное заполнение имени
 ACCOUNT_AUTHENTICATION_METHOD = 'email'  # метод аутентификации через поле почты
 ACCOUNT_EMAIL_VERIFICATION = 'none'  # проверка почты (не знаю как подключить)
+
+# настройка отправки писем по эл.почте
+EMAIL_HOST = "smtp.yandex.ru"
+EMAIL_PORT = 465
+EMAIL_HOST_USER = open(
+    "G:/Python_projects/all_secret_codes_are_here/Yandex email/login.txt"
+).read()
+EMAIL_HOST_PASSWORD = open(
+    "G:/Python_projects/all_secret_codes_are_here/Yandex email/password.txt"
+).read()
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = open(
+    "G:/Python_projects/all_secret_codes_are_here/Yandex email/email.txt"
+).read()
+SERVER_EMAIL = DEFAULT_FROM_EMAIL  # адрес сервера
+ADMINS = (("admin", DEFAULT_FROM_EMAIL),)  # список админов
