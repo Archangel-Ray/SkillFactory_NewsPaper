@@ -14,14 +14,7 @@
     </head>
     <body>
         {% block body %}
-            {% if messages %}
-                <div>
-                    <strong>{% trans "Messages:" %}</strong>
-                    <ul>
-                        {% for message in messages %}<li>{{ message }}</li>{% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
+            {% block menus %}
             <div>
                 <strong>{% trans "Menu:" %}</strong>
                 <ul>
@@ -78,6 +71,18 @@
                     {% endif %}
                 </ul>
             </div>
+            {% endblock menus %}
+
+            {% block message %}
+            {% if messages %}
+                <div>
+                    <strong>{% trans "Messages:" %}</strong>
+                    <ul>
+                        {% for message in messages %}<li>{{ message }}</li>{% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            {% endblock message %}
             {% block content %}
             {% endblock content %}
         {% endblock body %}
