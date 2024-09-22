@@ -1,5 +1,16 @@
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django.contrib import admin
+from django.contrib.gis import forms
 
-from .models import Category
+from .models import Category, Publication
 
 admin.site.register(Category)
+
+
+# форма СК-редактора
+class PublicationAdminForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Publication
+        fields = '__all__'
