@@ -166,3 +166,5 @@ DEFAULT_FROM_EMAIL = open(
 ).read()
 SERVER_EMAIL = DEFAULT_FROM_EMAIL  # адрес сервера
 ADMINS = (("admin", DEFAULT_FROM_EMAIL),)  # список админов
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
