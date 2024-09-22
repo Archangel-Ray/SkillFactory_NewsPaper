@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.yandex',
 
     'ckeditor',
+    'ckeditor_uploader',
 
     "board",
 ]
