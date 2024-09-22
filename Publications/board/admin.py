@@ -14,3 +14,8 @@ class PublicationAdminForm(forms.ModelForm):
     class Meta:
         model = Publication
         fields = '__all__'
+
+
+@admin.register(Publication)
+class PublicationAdmin(admin.ModelAdmin):
+    form = PublicationAdminForm
