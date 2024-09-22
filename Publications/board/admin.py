@@ -1,6 +1,6 @@
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django.contrib import admin
-from django.contrib.gis import forms
+from django import forms
 
 from .models import Category, Publication
 
