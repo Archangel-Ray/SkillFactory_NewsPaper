@@ -1,0 +1,24 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+Список всех объявлений
+{% endblock title %}
+{% block menus %}{% endblock %}
+{% block message %}{% endblock %}
+
+{% block content %}
+{% if publications %}
+{% for publication in publications %}
+<hr>
+<h4>Объявление № {{publication.id}}</h4>
+<h4>Автор: {{publication.user}}</h4>
+<h4>Заголовок: {{publication.title}}</h4>
+<h4>Дата создания: {{publication.create_time|date:'d M Y'}}</h4>
+<h4>Категория: {{publication.category}}</h4>
+<p>{{publication.content|safe}}</p>
+<hr>
+{% endfor %}
+{% else %}
+<h2>Объявлений нет!</h2>
+{% endif %}
+{% endblock content %}
