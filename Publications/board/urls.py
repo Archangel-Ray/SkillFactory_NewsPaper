@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import main
+from .views import PublicationsList
 
 urlpatterns = [
-    path("", main, name='основная страница'),
+    path("", PublicationsList.as_view(), name='основная страница'),
 ]
