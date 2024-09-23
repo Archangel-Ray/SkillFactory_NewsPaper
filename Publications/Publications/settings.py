@@ -203,6 +203,7 @@ CKEDITOR_CONFIGS = {
                 # вставьте сюда имя вашего приложения, чтобы добавить его на панель
                 'Preview',
                 'Maximize',
+                'Youtube',  # хитрость... должно начинаться с заглавной буквы. а кто предупреждал?
             ]},
         ],
         'toolbar': 'YourCustomToolbarConfig',  # тут можно выбрать конфигурацию панели инструментов
@@ -228,7 +229,8 @@ CKEDITOR_CONFIGS = {
             'clipboard',
             'dialog',
             'dialogui',
-            'elementspath'
+            'elementspath',
+            'youtube',
         ]),
     }
 }
