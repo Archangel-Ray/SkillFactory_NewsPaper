@@ -9,7 +9,7 @@ admin.site.register(Category)
 
 # форма СК-редактора
 class PublicationAdminForm(forms.ModelForm):
-    content = forms.CharField(widget=CKEditorUploadingWidget())
+    content = forms.CharField(widget=CKEditorUploadingWidget(), label="Содержимое")
 
     class Meta:
         model = Publication
