@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
+from .forms import PublicationForm
 from .models import Publication
 
 
@@ -20,3 +21,9 @@ class PublicationDetail(DetailView):
     template_name = 'publication.html'
     context_object_name = 'publication'
     pk_url_kwarg = 'id'
+
+
+class PublicationCreate(CreateView):
+    form_class = PublicationForm
+    model = Publication
+    template_name = 'publication_create.html'
