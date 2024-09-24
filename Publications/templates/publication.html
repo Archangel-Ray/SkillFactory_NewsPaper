@@ -1,0 +1,17 @@
+{% extends 'basic.html' %}
+
+
+{% block title %}
+{{publication.title|safe}}
+{% endblock title %}
+{% block menus %}{% endblock %}
+{% block message %}{% endblock %}
+
+{% block content %}
+<h1>{{publication.title|safe}}</h1>
+{{publication.content|safe}}
+<h6>№ {{publication.id}} |
+    Автор: {{publication.user}} |
+    Дата создания: {{publication.create_time|date:'d M Y'}} |
+    Категория: {{publication.category}}</h6>
+{% endblock content %}
