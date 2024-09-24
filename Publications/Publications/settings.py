@@ -138,6 +138,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_URL = '/accounts/login/'  # ссылка на форму аутентификации
 LOGIN_REDIRECT_URL = '/'  # ссылка после аутентификации
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 AUTHENTICATION_BACKENDS = [
     # Вход в систему по имени пользователя в администраторе Django, независимо от `allauth`
     'django.contrib.auth.backends.ModelBackend',
