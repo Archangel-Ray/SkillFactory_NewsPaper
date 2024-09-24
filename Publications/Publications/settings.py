@@ -234,3 +234,22 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+"""
+решение вопроса с добавлением изображений
+Олег Афанасьев предложил СК-редактор:
+https://app.pachca.com/chats/4733097?thread_message_id=177097058
+Куличевский создал модель картинок и добавляет ссылки в текст:
+https://smysl.io/blog/django-images/
+Загрузка изображений в Django. полный пример от установки Джанго до демонстрации загрузки
+https://nuancesprog.ru/p/15641/
+Балакирев: Загрузка файлов с использованием моделей
+https://proproprogs.ru/django4/django4-zagruzka-faylov-s-ispolzovaniem-modeley
+загрузка изображений в веб-приложении на Django с использованием поля ImageField и пакета "Pillow"
+https://proglib.io/p/bezopasnaya-zagruzka-izobrazheniy-v-veb-prilozhenii-na-django-2020-05-26
+Как загружать картинки и файлы через Django 3 используя модель и формы. 
+пример книжного магазина с использованием пакета "Pillow"
+https://fixmypc.ru/post/zagruzka-izobrazhenii-i-drugikh-failov-v-django-3-cherez-formy-i-modeli/
+установка редактора "CKEditor":
+Уроки Django 3 - использование редактора ckeditor в админке django и plugin youtube - урок 13
+https://www.youtube.com/watch?v=fMZBTCRGMS8
+"""
