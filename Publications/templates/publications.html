@@ -10,7 +10,7 @@
 {% if publications %}
 {% for publication in publications %}
 <hr>
-<h1>{{publication.title|upper}}</h1>
+<h1><a href="/{{publication.id}}/">{{publication.title|upper}}</a></h1>
 {{publication.content|safe}}
 <h6>№ {{publication.id}} |
     Автор: {{publication.user}} |
