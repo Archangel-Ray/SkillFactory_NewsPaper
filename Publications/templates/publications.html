@@ -11,11 +11,11 @@
 {% for publication in publications %}
 <hr>
 <h1>{{publication.title|upper}}</h1>
-<p>{{publication.content|safe}}</p>
-№ {{publication.id}} |
-Автор: {{publication.user}} |
-Дата создания: {{publication.create_time|date:'d M Y'}} |
-Категория: {{publication.category}}
+{{publication.content|safe}}
+<h6>№ {{publication.id}} |
+    Автор: {{publication.user}} |
+    Дата создания: {{publication.create_time|date:'d M Y'}} |
+    Категория: {{publication.category}}</h6>
 <hr>
 {% endfor %}
 {% else %}
