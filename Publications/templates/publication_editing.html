@@ -1,0 +1,17 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+Редактировать публикацию
+{% endblock title %}
+{% block menus %}{% endblock %}
+{% block message %}{% endblock %}
+
+{% block content %}
+<h2>Опубликовать</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ form.media }}
+    <input type="submit" value="Сохранить"/>
+</form>
+{% endblock content %}

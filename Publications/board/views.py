@@ -26,4 +26,4 @@ class PublicationDetail(DetailView):
 class PublicationCreate(CreateView):
     form_class = PublicationForm
     model = Publication
-    template_name = 'publication_create.html'
+    template_name = 'publication_editing.html'
