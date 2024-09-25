@@ -10,8 +10,14 @@
 {% block content %}
 <h1>{{publication.title|safe}}</h1>
 {{publication.content|safe}}
-<h6>№ {{publication.id}} |
-    Автор: {{publication.user}} |
-    Дата создания: {{publication.create_time|date:'d M Y'}} |
-    Категория: {{publication.category}}</h6>
+<h6>
+    № {{publication.id}}
+    | {{publication.user}}
+    | {{publication.create_time|date:'d M Y'}}
+    | {{publication.category}}
+    {%if publication.user == user%}
+    | <a href="{%url 'изменить публикацию' publication.id %}">изменить</a>
+    {%endif%}
+</h6>
+{{user}}
 {% endblock content %}
