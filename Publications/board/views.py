@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .forms import PublicationForm
 from .models import Publication
@@ -32,3 +32,11 @@ class PublicationCreate(CreateView):
         publication = form.save(commit=False)
         publication.user = self.request.user
         return super().form_valid(form)
+
+
+class PublicationEdit(UpdateView):
+    form_class = PublicationForm
+    model = Publication
+    template_name = 'publication_editing.html'
+    pk_url_kwarg = 'id'
+    context_object_name = 'publication'
