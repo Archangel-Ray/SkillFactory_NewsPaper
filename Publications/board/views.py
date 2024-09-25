@@ -27,3 +27,8 @@ class PublicationCreate(CreateView):
     form_class = PublicationForm
     model = Publication
     template_name = 'publication_editing.html'
+
+    def form_valid(self, form):
+        publication = form.save(commit=False)
+        publication.user = self.request.user
+        return super().form_valid(form)
