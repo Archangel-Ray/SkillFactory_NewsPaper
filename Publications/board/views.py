@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
@@ -23,7 +24,7 @@ class PublicationDetail(DetailView):
     pk_url_kwarg = 'id'
 
 
-class PublicationCreate(CreateView):
+class PublicationCreate(LoginRequiredMixin, CreateView):
     form_class = PublicationForm
     model = Publication
     template_name = 'publication_editing.html'
@@ -34,7 +35,7 @@ class PublicationCreate(CreateView):
         return super().form_valid(form)
 
 
-class PublicationEdit(UpdateView):
+class PublicationEdit(LoginRequiredMixin, UpdateView):
     form_class = PublicationForm
     model = Publication
     template_name = 'publication_editing.html'
