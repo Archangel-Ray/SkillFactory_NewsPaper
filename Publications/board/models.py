@@ -24,3 +24,11 @@ class Publication(models.Model):
 
     def get_absolute_url(self):
         return reverse('отдельная публикация', args=[str(self.id)])
+
+
+class Comment(models.Model):
+    publication = models.ForeignKey(Publication, on_delete=models.CASCADE, verbose_name='на публикацию')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Комментатор")
+    content = models.TextField(verbose_name="Высказывание")
+    create_time = models.DateTimeField(auto_now_add=True)
+    status = models.BooleanField()
