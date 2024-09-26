@@ -21,9 +21,11 @@
 </h6>
 {{user}}
 <p>тут должен быть список всех принятых откликов</p>
+{% if user.is_authenticated %}
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Добавить отклик"/>
 </form>
+{% endif %}
 {% endblock content %}
