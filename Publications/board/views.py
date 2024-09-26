@@ -22,6 +22,7 @@ class PublicationDetail(DetailView):
     template_name = 'publication.html'
     context_object_name = 'publication'
     pk_url_kwarg = 'id'
+    pk_url_kwarg = 'pk'
 
 
 class PublicationCreate(LoginRequiredMixin, CreateView):
