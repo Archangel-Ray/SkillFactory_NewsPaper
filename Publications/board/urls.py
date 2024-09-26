@@ -4,7 +4,7 @@ from .views import PublicationsList, PublicationDetail, PublicationCreate, Publi
 
 urlpatterns = [
     path("", PublicationsList.as_view(), name='основная страница'),
-    path("<int:id>/", PublicationDetail.as_view(), name='publication_detail'),
+    path("<int:id>/", PublicationDetail.as_view(), name='отдельная публикация'),
     path("create/", PublicationCreate.as_view(), name='создать публикацию'),
     path("<int:id>/edit/", PublicationEdit.as_view(), name='изменить публикацию'),
 ]
