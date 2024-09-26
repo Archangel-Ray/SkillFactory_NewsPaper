@@ -31,4 +31,4 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Комментатор")
     content = models.TextField(verbose_name="Высказывание")
     create_time = models.DateTimeField(auto_now_add=True)
-    status = models.BooleanField()
+    status = models.BooleanField(default=False)
