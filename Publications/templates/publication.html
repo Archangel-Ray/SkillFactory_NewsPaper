@@ -20,4 +20,10 @@
     {%endif%}
 </h6>
 {{user}}
+<p>тут должен быть список всех принятых откликов</p>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить отклик"/>
+</form>
 {% endblock content %}
