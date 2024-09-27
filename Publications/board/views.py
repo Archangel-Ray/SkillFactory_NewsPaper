@@ -1,9 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.mail import send_mail
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.views.generic.edit import FormMixin
 
+from Publications import settings
 from .forms import PublicationForm, CommentForm
 from .models import Publication, Comment
 
@@ -52,6 +54,15 @@ class PublicationDetail(FormMixin, DetailView):
         comment.publication = self.object
         comment.user = self.request.user
         form.save()
+
+        message = f'Вы получили отклик на публикацию: "{self.object}"'
+        author = comment.publication.user
+        send_mail(
+            subject='Поступил новый отклик',
+            message=message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[author.email, ]
+        )
         return super(PublicationDetail, self).form_valid(form)
 
 
