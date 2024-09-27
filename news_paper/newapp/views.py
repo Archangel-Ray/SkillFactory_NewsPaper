@@ -21,8 +21,8 @@ from django.views.generic import (
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
-from newapp.filters import ProductFilter
-from newapp.forms import PostForm
+from .filters import ProductFilter
+from .forms import PostForm
 from .models import Post, Category
 from .serializers import PostSerializer
 
