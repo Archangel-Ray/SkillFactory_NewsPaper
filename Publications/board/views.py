@@ -6,6 +6,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.views.generic.edit import FormMixin
 
 from Publications import settings
+from .filters import FilterByPublications
 from .forms import PublicationForm, CommentForm
 from .models import Publication, Comment
 
@@ -83,3 +84,19 @@ class PublicationEdit(LoginRequiredMixin, UpdateView):
     template_name = 'publication_editing.html'
     pk_url_kwarg = 'id'
     context_object_name = 'publication'
+
+
+class ResponsesToMyPublications(ListView):
+    model = Comment
+    template_name = "response_list.html"
+    context_object_name = "responses"
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = FilterByPublications(self.request.GET, queryset)
+        return self.filterset.qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["filterset"] = self.filterset
+        return context
