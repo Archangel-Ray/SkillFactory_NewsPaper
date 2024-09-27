@@ -1,0 +1,32 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+Мои отклики
+{% endblock title %}
+{% block menus %}{% endblock %}
+{% block message %}{% endblock %}
+
+{% block content %}
+
+<form action="" method="get">
+    {{ filterset.form.as_p }}
+    <input type="submit" value="выбрать категорию публикаций"/>
+</form>
+
+{% if responses %}
+{% for response in responses %}
+<hr>
+отклик от пользователя <strong>{{response.user}}</strong>:
+{{response.content}}
+{% if response.status is not True %}
+<p>
+    этот отклик не принят Вами
+    тут нужна кнопка "принять отклик" и кнопка "удалить отклик"
+    {{response.status}}
+</p>
+{% endif %}
+{% endfor %}
+{% else %}
+<h3>на эту публикацию нет откликов</h3>
+{% endif %}
+{% endblock content %}
