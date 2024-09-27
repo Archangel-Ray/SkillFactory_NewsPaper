@@ -5,7 +5,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.views.generic.edit import FormMixin
 
 from .forms import PublicationForm, CommentForm
-from .models import Publication
+from .models import Publication, Comment
 
 
 def main(request):
@@ -36,6 +36,7 @@ class PublicationDetail(FormMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(PublicationDetail, self).get_context_data(**kwargs)
         context['form'] = CommentForm()
+        context['responses'] = Comment.objects.all().filter(publication=self.object)
         return context
 
     def post(self, request, *args, **kwargs):
