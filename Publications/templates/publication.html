@@ -19,12 +19,23 @@
     | <a href="{%url 'изменить публикацию' publication.id %}">изменить</a>
     {%endif%}
 </h6>
-{{user}}
-<p>тут должен быть список всех принятых откликов</p>
+<hr>
+<ul>
+    {% for response in responses %}
+    <li>
+        <strong>{{response.user}}</strong>:
+        {{response.content}} ->
+        <small>{{response.create_time}}</small>
+        <hr>
+    </li>
+    {% endfor %}
+</ul>
 {% if user.is_authenticated %}
+<p>Оставить отклик от имени: <strong>{{user}}</strong></p>
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
+    <p><small>Ваш отклик появится когда автор публикации его подтвердит</small></p>
     <input type="submit" value="Добавить отклик"/>
 </form>
 {% endif %}
