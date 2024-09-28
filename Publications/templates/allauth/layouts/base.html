@@ -19,6 +19,8 @@
                 <strong>{% trans "Menu:" %}</strong>
                 <ul>
                     {% if user.is_authenticated %}
+                        <h3><a href="{% url 'посмотреть отклики' %}">Посмотреть отклики</a></h3>
+
                         {% url 'account_email' as email_url %}
                         {% if email_url %}
                             <li>

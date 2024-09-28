@@ -7,5 +7,5 @@ urlpatterns = [
     path("<int:pk>/", PublicationDetail.as_view(), name='отдельная публикация'),
     path("create/", PublicationCreate.as_view(), name='создать публикацию'),
     path("<int:id>/edit/", PublicationEdit.as_view(), name='изменить публикацию'),
-    path('private/', ResponsesToMyPublications.as_view(), name='личный кабинет'),
+    path('private/', ResponsesToMyPublications.as_view(), name='посмотреть отклики'),
 ]
