@@ -27,7 +27,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include('board.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('accounts/', include('allauth.urls'), name='настройки аккаунта'),
+    path('accounts/', include('allauth.urls')),
 
     re_path(r'^upload/', login_required(upload), name='ckeditor_upload'),
     re_path(r'^browse/', login_required(never_cache(browse)), name='ckeditor_browse'),
