@@ -93,6 +93,7 @@ class ResponsesToMyPublications(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
+        queryset = queryset.filter(publication__user__id=self.request.user.id)
         self.filterset = FilterByPublications(self.request.GET, queryset, request=self.request.user.id)
         return self.filterset.qs
 
