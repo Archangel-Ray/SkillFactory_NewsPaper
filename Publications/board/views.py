@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
@@ -101,3 +102,8 @@ class ResponsesToMyPublications(ListView):
         context = super().get_context_data(**kwargs)
         context["filterset"] = self.filterset
         return context
+
+
+def accept_the_response(request, pk):
+    Comment.objects.filter(id=pk).update(status=True)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
