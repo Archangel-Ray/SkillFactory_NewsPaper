@@ -7,24 +7,25 @@
 {% block message %}{% endblock %}
 
 {% block content %}
-
+<br>
 <form action="" method="get">
     {{ filterset.form.as_p }}
-    <input type="submit" value="выбрать категорию публикаций"/>
+    <input type="submit" value="выбрать публикацию"/>
 </form>
 
 {% if responses %}
 {% for response in responses %}
 <hr>
 отклик от пользователя <strong>{{response.user}}</strong>:
-{{response.content}}
-{% if response.status is not True %}
+<p>{{response.content}}</p>
 <p>
+    {% if response.status is not True %}
     этот отклик не принят Вами
-    тут нужна кнопка "принять отклик" и кнопка "удалить отклик"
+    <button><a href="{%url 'принять отклик' response.id %}">Принять отклик</a></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    {% endif %}
+    кнопка "удалить отклик"
     {{response.status}}
 </p>
-{% endif %}
 {% endfor %}
 {% else %}
 <h3>на эту публикацию нет откликов</h3>
