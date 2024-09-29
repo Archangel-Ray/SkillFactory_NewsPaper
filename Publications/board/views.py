@@ -106,4 +106,13 @@ class ResponsesToMyPublications(ListView):
 
 def accept_the_response(request, pk):
     Comment.objects.filter(id=pk).update(status=True)
+    response = Comment.objects.get(id=pk)
+    author_of_the_response = response.user
+    message = f'Ваш отклик на публикацию "{response.publication.title}" был принят автором. Вы можете его увидеть.'
+    send_mail(
+        subject='Отклик принят',
+        message=message,
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        recipient_list=[author_of_the_response.email]
+    )
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
