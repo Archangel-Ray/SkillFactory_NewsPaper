@@ -116,3 +116,9 @@ def accept_the_response(request, pk):
         recipient_list=[author_of_the_response.email]
     )
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def delete_response(request, pk):
+    response = Comment.objects.get(id=pk)
+    response.delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
