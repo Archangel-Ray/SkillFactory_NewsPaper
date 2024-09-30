@@ -22,12 +22,14 @@
 <hr>
 <ul>
     {% for response in responses %}
+    {% if response.status %}
     <li>
         <strong>{{response.user}}</strong>:
         {{response.content}} ->
         <small>{{response.create_time}}</small>
         <hr>
     </li>
+    {% endif%}
     {% endfor %}
 </ul>
 {% if user.is_authenticated %}
