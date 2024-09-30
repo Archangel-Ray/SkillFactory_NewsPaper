@@ -2,6 +2,10 @@
     <div class="container">
         <a class="navbar-brand" href="{%url 'основная страница'%}">Объявления</a>
         <a class="navbar-brand" href="{%url 'создать публикацию'%}">Опубликовать</a>
-        <a class="navbar-brand" href="/accounts/">Личный кабинет</a>
+        {% if user.is_authenticated %}
+        <a class="navbar-brand" href="/accounts/">Личный кабинет: {{ user }}</a>
+        {% else %}
+        <a class="navbar-brand" href="/accounts/">Войти</a>
+        {% endif %}
     </div>
 </nav>
