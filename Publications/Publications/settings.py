@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
 
+    'admin_email_sender',
+
     "board",
 ]
 
