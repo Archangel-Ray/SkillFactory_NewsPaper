@@ -21,10 +21,10 @@
 <p>
     {% if response.status is not True %}
     этот отклик не принят Вами
-    <button><a href="{%url 'принять отклик' response.id %}">Принять отклик</a></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button><a href="{%url 'принять отклик' response.id %}">Принять отклик</a></button>
+     или
     {% endif %}
-    кнопка "удалить отклик"
-    {{response.status}}
+    <button><a href="{%url 'удалить отклик' response.id %}">Удалить отклик</a></button>
 </p>
 {% endfor %}
 {% else %}
