@@ -1,7 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.views.generic.edit import FormMixin
@@ -14,6 +15,22 @@ from .models import Publication, Comment
 
 def main(request):
     return render(request, "basic.html")
+
+
+class ConfirmUser(UpdateView):
+    model = User
+    context_object_name = 'confirm_user'
+
+    def post(self, request, *args, **kwargs):
+        if 'last_name' in request.POST:
+            user = User.objects.filter(last_name=request.POST['last_name'])
+            print(user)
+            if user.exists():
+                user.update(is_active=True)
+                user.update(last_name="Активирован")
+            else:
+                return render(self.request, 'invalid_code.html')
+        return redirect('account_login')
 
 
 class PublicationsList(ListView):
