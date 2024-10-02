@@ -1,6 +1,7 @@
 from django.urls import path
 
 from .views import (
+    ConfirmUser,
     PublicationsList,
     PublicationDetail,
     PublicationCreate,
@@ -12,6 +13,7 @@ from .views import (
 
 urlpatterns = [
     path("", PublicationsList.as_view(), name='основная страница'),
+    path("confirm/", ConfirmUser.as_view(), name='подтвердить пользователя'),
     path("<int:pk>/", PublicationDetail.as_view(), name='отдельная публикация'),
     path("create/", PublicationCreate.as_view(), name='создать публикацию'),
     path("<int:id>/edit/", PublicationEdit.as_view(), name='изменить публикацию'),
