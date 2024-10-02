@@ -1,0 +1,16 @@
+{% extends "allauth/layouts/entrance.html" %}
+{% load i18n %}
+{% load allauth %}
+{% block title %}
+    Активация аккаунта
+{% endblock %}
+{% block content %}
+<h1>тут надо ввести то, что Вам пришло на почту</h1>
+<form action="{% url 'подтвердить пользователя' %}" method="post">
+    {% csrf_token %}
+    <label>
+        <input type="text" name="last_name" placeholder="Ведите код активации">
+    </label>
+    <input type="submit" value="Проверить">
+</form>
+{% endblock content %}
