@@ -7,23 +7,23 @@
 {% block message %}{% endblock %}
 
 {% block content %}
-{% if publications %}
-{% for publication in publications %}
-<hr>
-<h1><a href="/{{publication.id}}/">{{publication.title|upper}}</a></h1>
-{{publication.content|safe}}
-<h6>
-    № {{publication.id}}
-    | {{publication.user}}
-    | {{publication.create_time|date:'d M Y'}}
-    | {{publication.category}}
-    {%if publication.user == user%}
-    | <a href="{%url 'изменить публикацию' publication.id %}">изменить</a>
-    {%endif%}
-</h6>
-<hr>
-{% endfor %}
-{% else %}
-<h2>Объявлений нет!</h2>
-{% endif %}
+    {% if publications %}
+        {% for publication in publications %}
+        <hr>
+        <h1><a href="/{{publication.id}}/">{{publication.title|upper}}</a></h1>
+        {{publication.content|safe}}
+        <h6>
+            № {{publication.id}}
+            | {{publication.user}}
+            | {{publication.create_time|date:'d M Y'}}
+            | {{publication.category}}
+            {%if publication.user == user%}
+                | <a href="{%url 'изменить публикацию' publication.id %}">изменить</a>
+            {%endif%}
+        </h6>
+        <hr>
+        {% endfor %}
+    {% else %}
+        <h2>Объявлений нет!</h2>
+    {% endif %}
 {% endblock content %}
