@@ -9,19 +9,21 @@
 {% block content %}
     {% if publications %}
         {% for publication in publications %}
-        <hr>
-        <h1><a href="/{{publication.id}}/">{{publication.title|upper}}</a></h1>
-        {{publication.content|safe}}
-        <h6>
-            № {{publication.id}}
-            | {{publication.user}}
-            | {{publication.create_time|date:'d M Y'}}
-            | {{publication.category}}
-            {%if publication.user == user%}
-                | <a href="{%url 'изменить публикацию' publication.id %}">изменить</a>
-            {%endif%}
-        </h6>
-        <hr>
+        <div class="announcement_block">
+            <a href="/{{publication.id}}/"><h2>{{publication.title}}</h2></a>
+            <div class="the_contents_of_the_announcement">
+                {{publication.content|safe}}
+            </div>
+            <h6>
+                № {{publication.id}}
+                | {{publication.user}}
+                | {{publication.create_time|date:'d M Y'}}
+                | {{publication.category}}
+                {%if publication.user == user%}
+                    | <a href="{%url 'изменить публикацию' publication.id %}">изменить</a>
+                {%endif%}
+            </h6>
+        </div>
         {% endfor %}
     {% else %}
         <h2>Объявлений нет!</h2>

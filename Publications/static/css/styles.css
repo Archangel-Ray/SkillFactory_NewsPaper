@@ -10824,3 +10824,23 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+.announcement_block {
+  margin: 20px;
+  border: 2px solid #00300b;
+  border-radius: 20px;
+}
+
+.announcement_block a {
+  text-decoration: none;
+}
+
+.announcement_block h2 {
+  color: #00300b;
+  padding-bottom: 20px;
+}
+
+.the_contents_of_the_announcement {
+  text-align: left;
+  margin: 20px;
+}
