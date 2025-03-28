@@ -11,18 +11,18 @@
         {% for publication in publications %}
         <div class="announcement_block">
             <a href="/{{publication.id}}/"><h2>{{publication.title}}</h2></a>
-            <div class="the_contents_of_the_announcement">
-                {{publication.content|safe}}
-            </div>
             <h6>
                 № {{publication.id}}
                 | {{publication.user}}
                 | {{publication.create_time|date:'d M Y'}}
                 | {{publication.category}}
-                {%if publication.user == user%}
-                    | <a href="{%url 'изменить публикацию' publication.id %}">изменить</a>
-                {%endif%}
             </h6>
+            <div>
+                {{publication.content|safe}}
+            </div>
+            {%if publication.user == user%}
+                <a class="editing_button" href="{%url 'изменить публикацию' publication.id %}">изменить</a>
+            {%endif%}
         </div>
         {% endfor %}
     {% else %}
